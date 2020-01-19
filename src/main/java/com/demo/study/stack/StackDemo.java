@@ -7,9 +7,6 @@ import java.util.Stack;
 /**
  * 栈应用demo
  * 判断括号字符串是否有效
- *
- * @author shijianwei@iqianjin.com
- * @since 2020/01/19
  */
 public class StackDemo {
 

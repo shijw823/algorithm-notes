@@ -59,7 +59,6 @@ public class LinkListDemo {
         return false;
     }
 
-
     static class Node {
         private String value;
         private Node next;

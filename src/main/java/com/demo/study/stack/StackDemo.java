@@ -55,7 +55,7 @@ public class StackDemo {
             len = str.length();
             str = str.replace("()", "").replace("[]", "")
                     .replace("{}", "");
-        } while(len != str.length());
+        } while (len != str.length());
         return str.length() == 0;
     }
 }

@@ -27,6 +27,10 @@ public class LinkListDemo {
     }
 
     public static boolean isCycle(Node head) {
+        if (head == null || head.next == null) {
+            return false;
+        }
+
         Set<String> set = new HashSet<>();
 
         Node node = head.next;

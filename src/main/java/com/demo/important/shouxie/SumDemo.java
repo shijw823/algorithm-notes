@@ -1,6 +1,8 @@
-package com.demo.study.hash;
+package com.demo.important.shouxie;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 两个数求和等于某一值 1,15,18
@@ -14,18 +16,18 @@ public class SumDemo {
     }
 
     public int[] twoSum(int[] nums, int target) {
-        Map<Integer, Integer> map = new HashMap<>();
-
+        Map<Integer, Integer> resultMap = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            map.put(nums[i], i);
+            resultMap.put(nums[i], i);
         }
 
         for (int i = 0; i < nums.length; i++) {
             int y = target - nums[i];
-            if (map.containsKey(y) && map.get(y) != i) {
-                return new int[] {i, map.get(y)};
+            if (resultMap.containsKey(y) && i != resultMap.get(y)) {
+                return new int[] {i, resultMap.get(y)};
             }
         }
+
         return null;
     }
 

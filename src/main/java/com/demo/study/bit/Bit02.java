@@ -12,6 +12,10 @@ public class Bit02 {
 
     // 0 - 5
     public int[] countBits(int num) {
+        // 0,1,2,3,4,5
+        // 0000 0001 0010 0011 0100 0101
+        // 0       1    1    2    1    2
+
         int[] result = new int[num + 1];
 
         for (int i = 1; i <= num; i++) {
@@ -31,5 +35,7 @@ public class Bit02 {
         for (int i : result) {
             System.out.println(i);
         }
+
+        System.out.println(bit02.isPowerOfTwo(15));
     }
 }

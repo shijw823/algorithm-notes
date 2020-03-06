@@ -2,6 +2,7 @@ package com.demo.study.bit;
 
 /**
  * 191
+ * 有多少个二进制1
  */
 public class Bit01 {
 
@@ -30,6 +31,7 @@ public class Bit01 {
 
     public static void main(String[] args) {
         Bit01 bit01 = new Bit01();
-        bit01.hammingWeight(00000000000000000000000000001011);
+        // bit01.hammingWeight(00000000000000000000000000001011);
+        bit01.hammingWeight(12);
     }
 }

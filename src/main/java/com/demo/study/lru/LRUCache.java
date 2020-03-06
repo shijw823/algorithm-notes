@@ -9,7 +9,6 @@ public class LRUCache {
 
     public LRUCache(int capacity) {
         cache = new MyLinkedHashMap<>(capacity);
-        
     }
     
     public int get(int key) {

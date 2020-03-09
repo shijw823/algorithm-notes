@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
+ * *********************
  * 使用队列实现栈功能 225
  * ？？？
  */

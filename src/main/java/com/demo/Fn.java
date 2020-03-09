@@ -17,6 +17,6 @@ public class Fn {
             f[i] = f[i - 1] + f[i - 2];
         }
 
-        System.out.println(f[5]);
+        System.out.println(f[6]);
     }
 }

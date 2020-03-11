@@ -4,20 +4,25 @@ import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
- * *********************
  * 使用队列实现栈功能 225
- * ？？？
  */
 public class Queue2Stack {
 
     public static void main(String[] args) {
+        MyStack stack = new MyStack();
 
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        System.out.println(stack.top()); // returns 3
+        System.out.println(stack.pop());   // returns 3
+        System.out.println(stack.pop());
+        System.out.println(stack.empty()); // returns false
 
     }
 
-    class MyStack {
+    static class MyStack {
         ConcurrentLinkedQueue<Integer> inputQueue = new ConcurrentLinkedQueue<>();
-        ConcurrentLinkedQueue<Integer> outputQueue = new ConcurrentLinkedQueue<>();
 
         /** Initialize your data structure here. */
         public MyStack() {
@@ -26,30 +31,21 @@ public class Queue2Stack {
 
         /** Push element x onto stack. */
         public void push(int x) {
-            if (!inputQueue.isEmpty()) {
-                outputQueue.offer(x);
-                Iterator<Integer> iterator = inputQueue.iterator();
-                while (iterator.hasNext()) {
-                    Integer next = iterator.next();
-                    outputQueue.offer(next);
-                }
-                inputQueue.clear();
-            }
             inputQueue.offer(x);
-
-
+            // 1,2,3
         }
 
         /** Removes the element on top of the stack and returns that element. */
         public int pop() {
-            if (!outputQueue.isEmpty()) {
-                Iterator<Integer> iterator = outputQueue.iterator();
+            if (!inputQueue.isEmpty()) {
+                Iterator<Integer> iterator = inputQueue.iterator();
                 Integer result = null;
                 while (iterator.hasNext()) {
                     result = iterator.next();
                 }
 
-                outputQueue.remove(result);
+                inputQueue.remove(result);
+                // 1，2
 
                 return result;
             }
@@ -58,8 +54,8 @@ public class Queue2Stack {
 
         /** Get the top element. */
         public int top() {
-            if (!outputQueue.isEmpty()) {
-                Iterator<Integer> iterator = outputQueue.iterator();
+            if (!inputQueue.isEmpty()) {
+                Iterator<Integer> iterator = inputQueue.iterator();
                 Integer result = null;
                 while (iterator.hasNext()) {
                     result = iterator.next();
@@ -72,7 +68,7 @@ public class Queue2Stack {
 
         /** Returns whether the stack is empty. */
         public boolean empty() {
-            return outputQueue.isEmpty();
+            return inputQueue.isEmpty();
         }
     }
 }

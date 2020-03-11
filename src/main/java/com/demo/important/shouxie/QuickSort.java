@@ -1,5 +1,6 @@
 package com.demo.important.shouxie;
 
+
 /**
  * 快排 时间复杂度 nlgn
  * https://www.jianshu.com/p/e4369c66d4a5
@@ -23,29 +24,34 @@ public class QuickSort {
         if (arrays == null || arrays.length < 2) {
             return;
         }
+
         if (low < high) {
             int pivot = getPivot(arrays, low, high);
             sort(arrays, low, pivot - 1);
-            sort(arrays, pivot + 1, high);
+            sort(arrays, pivot +  1, high);
         }
+
     }
 
     private static int getPivot(int[] arrays, int low, int high) {
         int pivotValue = arrays[low];
 
-        while (low < high) {
+        while(low < high) {
             while (low < high && arrays[high] >= pivotValue) {
-                high --;
+                high--;
             }
+
             arrays[low] = arrays[high];
 
             while (low < high && arrays[low] <= pivotValue) {
-                low ++;
+                low++;
             }
+
             arrays[high] = arrays[low];
         }
         arrays[low] = pivotValue;
         return low;
     }
+
 
 }

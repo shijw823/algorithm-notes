@@ -27,7 +27,7 @@ public class CharacterTest {
         }
         Stack<Character> stack = new Stack<>();
         char[] chars = strs.toCharArray();
-        for(Character ch : chars) {
+        for(char ch : chars) {
             // 左括号入栈
             if(map.values().contains(ch)) {
                 stack.push(ch);

@@ -8,6 +8,12 @@ import java.util.List;
  * 22
  */
 public class ParenthesisDemo {
+
+    public static void main(String[] args) {
+        ParenthesisDemo parenthesisDemo = new ParenthesisDemo();
+        parenthesisDemo.generateParenthesis(3);
+    }
+
     public List<String> generateParenthesis(int n) {
         List<String> result = new ArrayList<>();
         generate("", result, n, n);

@@ -49,6 +49,32 @@ public class StackDemo {
         return stack.isEmpty();
     }
 
+    // 空间复杂度为o(1)
+    // https://mp.weixin.qq.com/s/UGb5B75W3r2yYL673E6LTQ
+    public static boolean isValid3(String s) {
+        if (s == null || s.length() < 1) {
+            return true;
+        }
+        int n = s.length();// 字符串长度
+        // 用来记录遇到的 "(" 的个数
+        int sum = 0;
+        // 遍历字符串
+        for (int i = 0; i < n; i++) {
+            // 获取字符串的第 i 个字符
+            char c = s.charAt(i);
+            if (c == '(') {
+                sum++;
+            } else {
+                if (sum == 0) {
+                    return false;
+                } else {
+                    sum--;
+                }
+            }
+        }
+        return sum == 0;
+    }
+
     public static boolean isValid2(String str) {
         int len;
         do {

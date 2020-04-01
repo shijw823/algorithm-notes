@@ -10,7 +10,6 @@ public class MyContainer<T> {
 
     private LinkedList<T> list = new LinkedList<>();
     private static int capacity = 10;
-    private int count = 0;
 
 
     public synchronized void put(T t) {
@@ -23,7 +22,6 @@ public class MyContainer<T> {
         }
 
         list.add(t);
-        count++;
         this.notifyAll();
 
     }
@@ -36,7 +34,6 @@ public class MyContainer<T> {
                 e.printStackTrace();
             }
         }
-        count--;
         T t = list.removeFirst();
         this.notifyAll();
         return t;

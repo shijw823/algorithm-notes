@@ -23,6 +23,14 @@ public class AnagramDemo {
             return false;
         }
 
+        convertStr2Map(s, sMap);
+
+        convertStr2Map(t, tMap);
+
+        return sMap.equals(tMap);
+    }
+
+    private void convertStr2Map(String s, Map<Character, Integer> sMap) {
         for (int i = 0; i < s.length(); i++) {
             Character key = s.charAt(i);
             Integer count = sMap.putIfAbsent(key, 1);
@@ -30,16 +38,6 @@ public class AnagramDemo {
                 sMap.put(key, sMap.get(key) + 1);
             }
         }
-
-        for (int i = 0; i < t.length(); i++) {
-            Character key = t.charAt(i);
-            Integer count = tMap.putIfAbsent(key, 1);
-            if (count != null) {
-                tMap.put(key, tMap.get(key) + 1);
-            }
-        }
-
-        return sMap.equals(tMap);
     }
 
     public static boolean isAnagram2(String s, String t) {

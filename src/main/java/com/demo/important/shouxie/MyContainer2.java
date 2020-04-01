@@ -41,7 +41,7 @@ public class MyContainer2<T> {
             producer.signalAll();
             return t;
         } catch (Exception e) {
-
+            e.printStackTrace();
         } finally {
             lock.unlock();
         }

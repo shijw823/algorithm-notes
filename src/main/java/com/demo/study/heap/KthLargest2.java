@@ -12,6 +12,7 @@ public class KthLargest2 {
 
     public KthLargest2(int k, int[] nums) {
         this.k = k;
+        // 从大到小
         this.queue = new PriorityQueue<>(k, (o1, o2) -> o2 - o1);
 
         for (int num : nums) {

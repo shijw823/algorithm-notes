@@ -2,6 +2,7 @@ package com.demo.study.tree;
 
 /**
  * 判断一棵树是否是二叉搜索树 98
+ * O(N)
  */
 public class BSTDemo {
     public static void main(String[] args) {

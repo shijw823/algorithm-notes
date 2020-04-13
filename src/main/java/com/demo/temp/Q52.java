@@ -18,10 +18,14 @@ public class Q52 {
         node12.setNext(node13);
         node13.setNext(node14);
 
+        System.out.println(head);
+
         Node head2 = new Node("4");
         Node node21 = new Node("5");
         head2.setNext(node21);
         node21.setNext(node13);
+
+        System.out.println(head2);
 
         Node firstCommonNode = demo.getFirstCommonNode(head, head2);
         System.out.println(firstCommonNode);
@@ -43,6 +47,8 @@ public class Q52 {
                 head2 = head2.next;
             }
         }
+
+        System.out.println("diff=" + diff);
 
         while(head1 != null && head2 != null) {
             if (head1 == head2) {

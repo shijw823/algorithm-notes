@@ -1,6 +1,7 @@
 package com.demo.study.tree;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -29,6 +30,29 @@ public class Tree5 {
         //System.out.println(resultList);
         tree5.postOrder(root, resultList);
         System.out.println(resultList);
+
+        Integer[] array = new Integer[] {1,6,3,4,7,5};
+        System.out.println(tree5.isPreOrder(array));
+    }
+
+    // 判断数组的顺序是否是二叉搜索树的前序遍历结果???
+    public boolean isPreOrder(Integer[] array) {
+        if (array.length <= 1) {
+            return true;
+        }
+        int root = array[0];
+        List<Integer> leftList = new ArrayList<>();
+        List<Integer> rightList = new ArrayList<>();
+
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < root) {
+                leftList.add(array[i]);
+            } else {
+                rightList.add(array[i]);
+            }
+        }
+        return isPreOrder(leftList.toArray(new Integer[0])) &&
+                isPreOrder(rightList.toArray(new Integer[0]));
     }
 
     // 前序遍历

@@ -31,6 +31,10 @@ public class Tree1 {
         Map<Integer, List<Integer>> map = new LinkedHashMap<>();
         tree1.dfs(root, 1, map);
         System.out.println(map.values());
+        System.out.println("-------------");
+        tree1.levelOrderPrint(root);
+        System.out.println("-------------");
+        tree1.levelOrderPrint2(root);
     }
 
     // 广度优先搜索
@@ -57,6 +61,51 @@ public class Tree1 {
             results.add(list);
         }
         return results;
+    }
+
+    public void levelOrderPrint(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            List<Integer> list = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                TreeNode treeNode = queue.poll();
+                System.out.print(treeNode.val + " ");
+                if (treeNode.left != null) {
+                    queue.add(treeNode.left);
+                }
+                if (treeNode.right != null) {
+                    queue.add(treeNode.right);
+                }
+            }
+        }
+    }
+
+    public void levelOrderPrint2(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            List<Integer> list = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                TreeNode treeNode = queue.poll();
+                System.out.print(treeNode.val + " ");
+                if (treeNode.left != null) {
+                    queue.add(treeNode.left);
+                }
+                if (treeNode.right != null) {
+                    queue.add(treeNode.right);
+                }
+            }
+            System.out.println();
+        }
     }
 
     public void dfs(TreeNode node, int level, Map<Integer, List<Integer>> map) {

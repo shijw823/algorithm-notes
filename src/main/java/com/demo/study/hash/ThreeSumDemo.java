@@ -40,8 +40,7 @@ public class ThreeSumDemo {
 
             if (map.containsKey(nums[i])) {
                 Set<String> tempStrSet = map.get(nums[i]);
-                String[] strArray = tempStrSet.toArray(new String[0]);
-                for (String str : strArray) {
+                for (String str : tempStrSet) {
                     List<Integer> list = new ArrayList<>();
                     if (!str.contains(String.valueOf(i))) {
                         String[] indexArray = str.split(":");

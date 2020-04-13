@@ -43,6 +43,8 @@ public class RemoveKDigits {
             offset ++;
         }
 
-        return new String(result, offset, length - offset);
+        return new String(result).substring(offset);
+
+        // return new String(result, offset, length - offset);
     }
 }

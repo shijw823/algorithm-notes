@@ -5,6 +5,19 @@ package com.demo.study.bit;
  * 338
  */
 public class Bit02 {
+    // 从m到n需要改变多少位
+    public int changeBits(int m, int n) {
+        // 不一样的地方，都转为1
+        int result = m ^ n;
+        // 计算1的个数
+        int count = 0;
+        while(result != 0) {
+            result = result & (result - 1);
+            count++;
+        }
+        return count;
+    }
+
     // 000010000
     public boolean isPowerOfTwo(int n) {
         return n > 0 && (n & (n - 1)) == 0;
@@ -38,5 +51,7 @@ public class Bit02 {
         }
 
         System.out.println(bit02.isPowerOfTwo(15));
+
+        System.out.println(bit02.changeBits(10, 13));
     }
 }

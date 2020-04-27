@@ -16,6 +16,8 @@ public class FindInArray {
                 {6,8,11,15}
         };
 
+        System.out.println(array.length);
+
         FindInArray findInArray = new FindInArray();
         System.out.println(findInArray.find(array, 11));
 

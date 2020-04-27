@@ -6,7 +6,7 @@ import java.util.Objects;
 
 /**
  * 第一个只出现一次的字符
- *  时间复杂度O(n)，空间复杂度O(1)
+ * 时间复杂度O(n)，空间复杂度O(1)
  */
 public class Q50 {
 

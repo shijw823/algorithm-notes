@@ -4,6 +4,10 @@ import java.util.*;
 
 /**
  * 打印二叉树中和为某一值的路径
+ *   10
+ *  5 12
+ * 4    7
+ * 有问题
  */
 public class Tree1 {
     public static void main(String[] args) {

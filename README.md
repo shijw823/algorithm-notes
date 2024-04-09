@@ -1,18 +1,18 @@
+# 课件下载地址
+- https://gitee.com/geektime-geekbang/algorithm-1
+  
 # 算法面试通关40讲笔记
-
 - https://www.bigocheatsheet.com/
 
 
 
 # 算法练习
-
 - https://leetcode.com/problemset/all/
 - 中文：https://leetcode-cn.com/problemset/all/?utm_source=LCUS&utm_medium=nbanner_click&utm_campaign=transfer2china&utm_content=title_main
 
 
 
 #  需要记忆
-
 - 时间复杂度
   - 二叉查找树  O(logn)
   - 二叉树遍历 O(n)
@@ -21,7 +21,6 @@
 
 
 # 笔记
-
 - hash表（HashSet、HashMap） 无序时间复杂度是O(1)
 - 二叉查找树（TreeSet、TreeMap） 有序时间复杂度 logn
 
@@ -32,13 +31,8 @@
 - https://mp.weixin.qq.com/s/A3dLW92SNag8lw7vrQiEHQ
 
 
-
-
-
 # 实战题目
-
 1. https://leetcode.com/problems/reverse-linked-list/  第6讲
-
 2. https://leetcode.com/problems/linked-list-cycle 第6讲
 3. https://leetcode.com/problems/swap-nodes-in-pairs  第6讲
 4. https://leetcode.com/problems/linked-list-cycle-ii 第6讲

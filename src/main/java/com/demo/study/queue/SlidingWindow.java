@@ -7,6 +7,7 @@ import java.util.Deque;
  * *********************
  * 滑动窗口最大值 O(n) 239
  * ???
+ * 可以采用优先队列， 大顶堆，O(nlogk) 
  */
 public class SlidingWindow {
 

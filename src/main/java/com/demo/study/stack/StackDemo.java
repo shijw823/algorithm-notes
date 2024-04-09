@@ -37,12 +37,10 @@ public class StackDemo {
             if (map.values().contains(key)) {
                 stack.push(key);
             } else {
-                if (stack.isEmpty() || !map.get(key).equals(stack.peek())) {
+                if (stack.isEmpty() || !map.get(key).equals(stack.pop())) {
                     System.out.println("匹配失败");
                     return false;
-                } else {
-                    stack.pop();
-                }
+                } 
             }
 
         }

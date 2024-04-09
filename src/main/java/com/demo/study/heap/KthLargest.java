@@ -3,6 +3,7 @@ package com.demo.study.heap;
 import java.util.PriorityQueue;
 
 /**
+ * 时间复杂度 nlgk
  * 找到数据流中第几大的数（小顶堆，最上面的数据是最小的） 703
  */
 public class KthLargest {

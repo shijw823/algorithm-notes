@@ -30,6 +30,7 @@ public class AnagramDemo {
         return sMap.equals(tMap);
     }
 
+    // O(n)
     private void convertStr2Map(String s, Map<Character, Integer> sMap) {
         for (int i = 0; i < s.length(); i++) {
             Character key = s.charAt(i);
@@ -40,6 +41,7 @@ public class AnagramDemo {
         }
     }
 
+    // O(nlgn)，这个不太好
     public static boolean isAnagram2(String s, String t) {
         if (s.length() != t.length()) {
             return false;

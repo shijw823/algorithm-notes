@@ -13,14 +13,26 @@ public class ReverseStr {
 
 	private static void reverse(String str) {
 		char[] chars = str.toCharArray();
-		for(int i=0;i<chars.length;i++) {
-			if(i == chars.length-1) {
-				System.out.print(chars[i]);
-			} else {
-				reverse(str.substring(i+1));
-				System.out.print(chars[i]);
-				break;
-			}
+		int len = chars.length / 2;
+		for (int i = 0; i < len; i++) {
+			char temp = chars[i];
+			chars[i] = chars[str.length() - i -1];
+			chars[str.length() - i -1] = temp;
 		}
+		System.out.println(chars);
 	}
+
+
+	//private static void reverse2(String str) {
+	//	char[] chars = str.toCharArray();
+	//	for(int i=0;i<chars.length;i++) {
+	//		if(i == chars.length-1) {
+	//			System.out.print(chars[i]);
+	//		} else {
+	//			reverse2(str.substring(i+1));
+	//			System.out.print(chars[i]);
+	//			break;
+	//		}
+	//	}
+	//}
 }

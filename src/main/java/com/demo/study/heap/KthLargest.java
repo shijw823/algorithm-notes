@@ -35,6 +35,7 @@ public class KthLargest {
     public static void main(String[] args) {
         int[] nums = new int[]{23, 12, 15, 67, 88, 99, 10, 18};
         KthLargest kthLargest = new KthLargest(5, nums);
+        System.out.println(kthLargest.queue);
         // 堆顶的值就是数据流中第几大的数
         System.out.println(kthLargest.queue.peek());
     }

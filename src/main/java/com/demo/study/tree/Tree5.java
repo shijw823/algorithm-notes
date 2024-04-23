@@ -1,11 +1,12 @@
 package com.demo.study.tree;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * 前中后序遍历
+ * **********************ok
  *
  * @author shijianwei
  * @since 2020/04/05
@@ -26,33 +27,42 @@ public class Tree5 {
 
         Tree5 tree5 = new Tree5();
         List<Integer> resultList = new ArrayList<>();
-        //tree5.preOrder(root, resultList);
-        //System.out.println(resultList);
+        tree5.preOrder(root, resultList);
+        System.out.println(resultList);
+        resultList = new ArrayList<>();
         tree5.postOrder(root, resultList);
         System.out.println(resultList);
 
-        Integer[] array = new Integer[] {1,6,3,4,7,5};
+        //Integer[] array = new Integer[] {1,6,3,4,7,5};
+        //Integer[] array = new Integer[] {5,2,6,1,3};
+        Integer[] array = new Integer[] {5,2,1,3,6};
+        //Integer[] array = new Integer[] {7, 4, 1, 6, 5, 10, 8, 11};
         System.out.println(tree5.isPreOrder(array));
     }
 
     // 判断数组的顺序是否是二叉搜索树的前序遍历结果???
+    // https://www.bilibili.com/video/BV1QR4y137G4?p=1&vd_source=c0d8eeb8eb3d1738b23ed3000979acdc
+    // https://www.bilibili.com/video/BV1cG4y1m7si/?spm_id_from=333.337.search-card.all.click&vd_source=c0d8eeb8eb3d1738b23ed3000979acdc
+    // 5,2,6,1,3  : false
+    // 5,2,1,3,6  : true
+    // 7 4 1 6 5 10 8 11 : true
+    // O(n)
     public boolean isPreOrder(Integer[] array) {
-        if (array.length <= 1) {
-            return true;
-        }
-        int root = array[0];
-        List<Integer> leftList = new ArrayList<>();
-        List<Integer> rightList = new ArrayList<>();
+        Stack<Integer> stack = new Stack<>();
+        int min = -1;
 
-        for (int i = 1; i < array.length; i++) {
-            if (array[i] < root) {
-                leftList.add(array[i]);
-            } else {
-                rightList.add(array[i]);
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] < min) {
+                return false;
             }
+
+            while (!stack.isEmpty() && array[i] > stack.peek()) {
+                min = stack.pop();
+            }
+
+            stack.push(array[i]);
         }
-        return isPreOrder(leftList.toArray(new Integer[0])) &&
-                isPreOrder(rightList.toArray(new Integer[0]));
+        return true;
     }
 
     // 前序遍历

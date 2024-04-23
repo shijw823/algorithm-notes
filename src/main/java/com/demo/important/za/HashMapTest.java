@@ -13,6 +13,7 @@ public class HashMapTest {
         Map<String, Integer> map = new HashMap<>();
         String keyStr = new String("hello world");
         String keyStr2 = String.valueOf(new Integer(1));
+        //String keyStr2 = new String("hello world");
         System.out.println(keyStr.hashCode() == keyStr2.hashCode());
         System.out.println(keyStr.hashCode());
         System.out.println(keyStr2.hashCode());

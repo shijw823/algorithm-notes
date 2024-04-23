@@ -1,5 +1,7 @@
 package com.demo;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.PriorityQueue;
 
 /**
@@ -8,6 +10,7 @@ import java.util.PriorityQueue;
 public class TopK {
 
     public static void main(String[] args) {
+        // 从大到小
         PriorityQueue<Integer> queue = new PriorityQueue<>((i,j) -> j -i);
 
         queue.offer(5);
@@ -24,9 +27,11 @@ public class TopK {
         queue.offer(6);
 
 
+        List<Integer> resultList = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
-            System.out.println(queue.poll());
+            resultList.add(queue.poll());
         }
+        System.out.println(resultList);
     }
 
 }

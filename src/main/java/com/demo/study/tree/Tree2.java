@@ -3,7 +3,7 @@ package com.demo.study.tree;
 import java.util.*;
 
 /**
- * 广度优先搜索
+ * 广度优先搜索 BFS  一层一层扫
  *                  9
  *               10   11
  *             12          19
@@ -13,7 +13,21 @@ import java.util.*;
  *                                 12
  *
  * 打印每一层的第一个节点
+ * BFS
+ * [
+ *  [9]
+ *  [10, 11]
+ *  [12, 19]
+ *  ....
+ * ]
  *
+ *  DFS, 访问的时候额外记录层级
+ *  [
+ *   [9]
+ *   [10,]
+ *   [12, ]
+ *   ...
+ *  ]
  * @author shijianwei
  * @since 2020/04/04
  */
@@ -45,40 +59,12 @@ public class Tree2 {
         level6_2.right = level7_1;
 
         Tree2 tree2 = new Tree2();
-        //Map<Integer, Integer> resultMap = tree2.levelOrder(root);
-        //System.out.println(resultMap.values());
         Map<Integer, Integer> resultMap = new LinkedHashMap<>();
         tree2.getTreeNodeFirstNodeVal(root, 1, resultMap);
         System.out.println(resultMap.values());
     }
 
-    // 广度优先搜索
-    public Map<Integer, Integer> levelOrder(TreeNode root) {
-        Map<Integer, Integer> resultMap = new LinkedHashMap<>();
-        if (root == null) {
-            return resultMap;
-        }
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-        Integer level = 1;
-        while (!queue.isEmpty()) {
-            int size = queue.size();
-            for (int i = 0; i < size; i++) {
-                TreeNode treeNode = queue.poll();
-                resultMap.putIfAbsent(level, treeNode.val);
-                if (treeNode.left != null) {
-                    queue.add(treeNode.left);
-                }
-                if (treeNode.right != null) {
-                    queue.add(treeNode.right);
-                }
-            }
-            level++;
-        }
-        return resultMap;
-    }
-
-    // 深度优先搜索
+    // 深度优先搜索 DFS
     private void getTreeNodeFirstNodeVal(TreeNode node, int level, Map<Integer, Integer> resultMap) {
         if(node != null) {
             resultMap.putIfAbsent(level, node.val);

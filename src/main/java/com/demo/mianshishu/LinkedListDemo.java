@@ -14,16 +14,17 @@ public class LinkedListDemo {
         Node node4 = new Node("4");
         Node node5 = new Node("5");
         Node node6 = new Node("6");
+        Node node7 = new Node("7");
 
         head.setNext(node2);
         node2.setNext(node3);
         node3.setNext(node4);
         node4.setNext(node5);
         node5.setNext(node6);
+        node6.setNext(node7);
 
         Node node = findKthToTail(head, 3);
         System.out.println(node);
-
     }
 
     public static Node findKthToTail(Node head, int k) {
@@ -34,8 +35,6 @@ public class LinkedListDemo {
         for (int i = 0; i < k-1; i++) {
             if (node1.next != null) {
                 node1 = node1.next;
-            } else {
-                return null;
             }
         }
 

@@ -3,6 +3,7 @@ package com.demo.study.hash;
 import java.util.*;
 
 /**
+ * *********************ok
  * @author shijianwei
  * @since 2020/04/01
  */
@@ -21,13 +22,8 @@ public class SumDemo2 {
         Map<Integer, Set<Integer>> map = new HashMap<>();
         for (int i = 0; i < array.length; i++) {
             Integer key = array[i];
-            if (map.get(key) == null) {
-                Set<Integer> set = new HashSet<>();
-                map.put(key, set);
-                set.add(i);
-            } else {
-                map.get(key).add(i);
-            }
+            map.putIfAbsent(key, new HashSet<>());
+            map.get(key).add(i);
         }
         List<List<Integer>> result = new ArrayList<>();
         for (int j = 0; j < array.length; j++) {

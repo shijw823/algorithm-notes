@@ -2,7 +2,7 @@ package com.demo.study.tree;
 
 /**
  * 104\111
- * 求二叉树的最小和最大深度
+ * 求二叉树的最小和最大深度 O(n)
  *
  * @author shijianwei
  * @since 2020/04/04
@@ -26,6 +26,7 @@ public class Tree3 {
         System.out.println(tree3.minDepth(root));
     }
 
+    // 递归 or BFS
     int maxDepth(TreeNode node) {
         return node == null ? 0 : 1 + Math.max(maxDepth(node.left), maxDepth(node.right));
 
@@ -49,6 +50,7 @@ public class Tree3 {
         //return level;
     }
 
+    // 递归 or BFS
     int minDepth(TreeNode node) {
         if (node == null) {
             return 0;
@@ -73,7 +75,7 @@ public class Tree3 {
         //    level++;
         //    for (int i = 0; i < size; i++) {
         //        TreeNode currentNode = queue.poll();
-        //        if (currentNode.left == null && currentNode.right == null) {
+        //        if (currentNode.left == null && currentNode.right == null) { // 叶子节点
         //            return level;
         //        }
         //        if (currentNode.left != null) {

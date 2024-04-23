@@ -9,19 +9,17 @@ package com.demo.important.algorithm;
 public class ErfenSearchDemo {
     public static void main(String[] args) {
         int[] array = {2, 3, 5, 6, 7, 9, 23, 34, 78};
-        int searchNum = 4;
+        int searchNum = 34;
         int startIndex = 0;
         int endIndex = array.length - 1;
 
         while (endIndex > startIndex) {
-            int midIndex = (startIndex + endIndex) / 2;
+            int midIndex = startIndex + (endIndex - startIndex) / 2;
             if (array[midIndex] > searchNum) {
                 endIndex = midIndex - 1;
-            }
-            else if (array[midIndex] < searchNum) {
+            } else if (array[midIndex] < searchNum) {
                 startIndex = midIndex + 1;
-            }
-            else {
+            } else {
                 System.out.println("找到了,索引是：" + midIndex);
                 return;
             }

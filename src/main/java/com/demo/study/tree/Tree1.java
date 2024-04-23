@@ -3,7 +3,7 @@ package com.demo.study.tree;
 import java.util.*;
 
 /**
- * 广度优先搜索
+ * 广度优先搜索 BFS 一层一层扫
  * 32
  *
  * @author shijianwei
@@ -23,18 +23,22 @@ public class Tree1 {
         level2Right.right = level3Right;
 
         Tree1 tree1 = new Tree1();
-        //List<List<Integer>> resultList = tree1.levelOrder(root);
-        //System.out.println(resultList);
+        List<List<Integer>> resultList = tree1.levelOrder(root);
+        System.out.println(resultList);
         Map<Integer, Integer> resultMap = new LinkedHashMap<>();
         tree1.getTreeNodeFirstNodeVal(root, 1, resultMap);
         System.out.println(resultMap.values());
+        Map<Integer, Integer> result = new LinkedHashMap<>();
+        tree1.getTreeNodeFirstNodeVal2(root, result);
+        System.out.println(result.values());
+
         Map<Integer, List<Integer>> map = new LinkedHashMap<>();
-        tree1.dfs(root, 1, map);
+        tree1.dfsLevelOrder(root, 1, map);
         System.out.println(map.values());
-        System.out.println("-------------");
-        tree1.levelOrderPrint(root);
-        System.out.println("-------------");
-        tree1.levelOrderPrint2(root);
+        //System.out.println("-------------");
+        //tree1.levelOrderPrint(root);
+        //System.out.println("-------------");
+        //tree1.levelOrderPrint2(root);
     }
 
     // 广度优先搜索
@@ -46,11 +50,11 @@ public class Tree1 {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
         while (!queue.isEmpty()) {
-            int size = queue.size();
-            List<Integer> list = new ArrayList<>();
-            for (int i = 0; i < size; i++) {
+            int levelSize = queue.size();
+            List<Integer> currentLevelList = new ArrayList<>();
+            for (int i = 0; i < levelSize; i++) {
                 TreeNode treeNode = queue.poll();
-                list.add(treeNode.val);
+                currentLevelList.add(treeNode.val);
                 if (treeNode.left != null) {
                     queue.add(treeNode.left);
                 }
@@ -58,7 +62,7 @@ public class Tree1 {
                     queue.add(treeNode.right);
                 }
             }
-            results.add(list);
+            results.add(currentLevelList);
         }
         return results;
     }
@@ -71,29 +75,6 @@ public class Tree1 {
         queue.add(root);
         while (!queue.isEmpty()) {
             int size = queue.size();
-            List<Integer> list = new ArrayList<>();
-            for (int i = 0; i < size; i++) {
-                TreeNode treeNode = queue.poll();
-                System.out.print(treeNode.val + " ");
-                if (treeNode.left != null) {
-                    queue.add(treeNode.left);
-                }
-                if (treeNode.right != null) {
-                    queue.add(treeNode.right);
-                }
-            }
-        }
-    }
-
-    public void levelOrderPrint2(TreeNode root) {
-        if (root == null) {
-            return;
-        }
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-        while (!queue.isEmpty()) {
-            int size = queue.size();
-            List<Integer> list = new ArrayList<>();
             for (int i = 0; i < size; i++) {
                 TreeNode treeNode = queue.poll();
                 System.out.print(treeNode.val + " ");
@@ -108,27 +89,59 @@ public class Tree1 {
         }
     }
 
-    public void dfs(TreeNode node, int level, Map<Integer, List<Integer>> map) {
+    /**
+     * 使用dfs实现按层打印
+     * @param node
+     * @param level
+     * @param map
+     */
+    public void dfsLevelOrder(TreeNode node, int level, Map<Integer, List<Integer>> map) {
         if (node != null) {
-            List<Integer> list = map.get(level);
-            if (list == null) {
-                list = new ArrayList<>();
-                map.put(level, list);
-            }
+            List<Integer> list = map.computeIfAbsent(level, k -> new ArrayList<>());
             list.add(node.val);
             level++;
-            dfs(node.left, level, map);
-            dfs(node.right, level, map);
+            dfsLevelOrder(node.left, level, map);
+            dfsLevelOrder(node.right, level, map);
         }
     }
 
-    // 深度优先搜索，递归
+    // 深度优先搜索，递归 DFS
+    // 获取每一层首节点
     private void getTreeNodeFirstNodeVal(TreeNode node, int level, Map<Integer, Integer> resultMap) {
         if(node != null) {
             resultMap.putIfAbsent(level, node.val);
             level++;
             getTreeNodeFirstNodeVal(node.left, level, resultMap);
             getTreeNodeFirstNodeVal(node.right, level, resultMap);
+        }
+    }
+
+    // BFS
+    private void getTreeNodeFirstNodeVal2(TreeNode root, Map<Integer, Integer> result) {
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        int level = 1;
+
+        while (!queue.isEmpty()) {
+           int currentLevelSize = queue.size();
+            for (int i = 0; i < currentLevelSize; i++) {
+                TreeNode node = queue.poll();
+
+                //if (i == 0) {
+                //    result.add(node.val);
+                //}
+
+                result.putIfAbsent(level, node.val);
+
+                if (node != null && node.left != null) {
+                    queue.add(node.left);
+                }
+
+                if (node != null &&  node.right != null) {
+                    queue.add(node.right);
+                }
+            }
+            level++;
         }
     }
 

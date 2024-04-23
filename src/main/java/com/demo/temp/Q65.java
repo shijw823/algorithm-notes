@@ -1,7 +1,10 @@
 package com.demo.temp;
 
 /**
+ * **********************ok
  * 不用加减乘除做加法
+ * 2235
+ * AddTest
  */
 public class Q65 {
     public static void main(String[] args) {
@@ -13,10 +16,13 @@ public class Q65 {
         swap2(2, 3);
     }
 
+    // 13 + 8
+    // 1101 + 1000
     public int add(int a, int b) {
         while (a != 0) {
-            int temp = a ^ b;
-            a = (a & b) << 1;
+            // 10000 00101
+            int temp = a ^ b; //不带进位和
+            a = (a & b) << 1; //进位
             b = temp;
         }
         return b;

@@ -1,14 +1,15 @@
 package com.demo.temp;
 
 /**
+ * **********************??
  * 找出两个链表中的第一个公共节点
  *
  */
 public class Q52 {
     public static void main(String[] args) {
         Q52 demo = new Q52();
-        Node head = new Node("1");
-        Node node11 = new Node("2");
+        Node head = new Node("4");
+        Node node11 = new Node("5");
         Node node12 = new Node("3");
         Node node13 = new Node("6");
         Node node14 = new Node("7");
@@ -23,7 +24,7 @@ public class Q52 {
         Node head2 = new Node("4");
         Node node21 = new Node("5");
         head2.setNext(node21);
-        node21.setNext(node13);
+        node21.setNext(node14);
 
         System.out.println(head2);
 

@@ -3,8 +3,9 @@ package com.demo.study.hash;
 import java.util.*;
 
 /**
- * *********************
+ * *********************ok
  * 三个数求和为零 15
+ * O(n * n)
  */
 public class ThreeSumDemo {
 
@@ -14,7 +15,6 @@ public class ThreeSumDemo {
         for (List<Integer> list : result) {
             System.out.println(list);
         }
-
     }
 
     public List<List<Integer>> threeSum(int[] nums) {
@@ -26,12 +26,7 @@ public class ThreeSumDemo {
         for (int i = 0; i < nums.length - 1; i++) {
             for (int j = i + 1; j < nums.length; j++) {
                 int z = nums[i] + nums[j];
-
-                if (map.get(-z) == null) {
-                    Set<String> set = new HashSet<>();
-                    map.put(-z, set);
-                }
-
+                map.putIfAbsent(-z, new HashSet<>());
                 map.get(-z).add(i + ":" + j);
             }
         }

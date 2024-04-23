@@ -1,7 +1,9 @@
 package com.demo;
 
 /**
- * 有序数组中绝对值最小的,要求时间复杂度小于O（n）
+ * **********************ok
+ * 有序数组中绝对值最小的,要求时间复杂度小于O(n)
+ * 二分查找
  * https://www.cnblogs.com/leezhxing/p/5468891.html
  */
 public class ArrayAbs {
@@ -9,7 +11,7 @@ public class ArrayAbs {
     public static void main(String[] args) {
         int[] array = new int[] {-5, -4, -4, -3, 1, 2};
         System.out.println(getMin(array));
-
+        System.out.println(search(array, 0, array.length - 1));
     }
 
     private static int getMin(int[] array) {
@@ -30,7 +32,8 @@ public class ArrayAbs {
 
     private static int search(int[] array, int left, int right) {
         while (left < right) {
-            int mid = (left + right) / 2;
+            //int mid = (left + right) / 2;
+            int mid = left + (right - left) / 2;
             if (array[mid] > 0) {
                 if (array[mid - 1] > 0) {
                     right = mid - 1;

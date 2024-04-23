@@ -6,7 +6,7 @@ package com.demo.important.algorithm;
  */
 public class ArraysTest {
 	public static void main(String[] args) {
-		int[] arrays = {1, 2, 3, 4, 5, 6};
+		int[] arrays = {1, 2, 3, 4, 5};
 		reverseArray(arrays);
 		for (int temp : arrays) {
 			System.out.println(temp);

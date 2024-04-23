@@ -9,10 +9,12 @@ public class ArrayDemo {
 
 
     public static void main(String[] args) {
-        int[] array = new int[] {1,3,5,2,4,6,7,15,26,8};
+        int[] array = new int[]{1, 3, 5, 2, 4, 6, 7, 15, 26, 8};
         int[] resultArray = new int[array.length];
 
+        // 偶数
         int j = 0;
+        // 奇数
         int k = 1;
         for (int i = 0; i < array.length; i++) {
             if (array[i] % 2 == 0) {

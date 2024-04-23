@@ -1,10 +1,14 @@
 package com.demo.important.algorithm;
 
+import java.util.Stack;
+
 /**
- * *********************
  * RemoveKDigits
  * 删去k个数字后的最小值
  * see https://mp.weixin.qq.com/s/B22d7S_8IC3J3H7RbCVXxA
+ *
+ * 当栈顶数字大于遍历到的当前数字，栈顶数字出栈
+ * O(n)
  *
  * @author shijianwei
  * @since 2019/02/19
@@ -30,14 +34,16 @@ public class RemoveKDigits {
         for (int i = 0; i<nums.length(); i++) {
             char c = nums.charAt(i);
 
+            //当栈顶数字大于遍历到的当前数字，栈顶数字出栈（相当于删除数字）
             if(topIndex > 0 && result[topIndex - 1] > c && k > 0) {
-                topIndex -= 1;
-                k -= 1;
+                topIndex--;
+                k--;
             }
 
             result[topIndex++] = c;
         }
 
+        // 找到栈中第一个非零数字的位置，以此构建新的整数字符串
         int offset = 0;
         while(offset < length && result[offset] == '0') {
             offset ++;

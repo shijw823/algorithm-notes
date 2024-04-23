@@ -3,17 +3,17 @@ package com.demo.mianshishu;
 /**
  * 在二维数组中查找某一个数
  *
+ * 从第一行最右边列开始
  */
 public class FindInArray {
 
-
     public static void main(String[] args) {
-        int[][] array = new int[][] {
+        int[][] array = new int[][]{
                 // 从左到右递增，从上到下递增
-                {1,2,8,9},
-                {2,4,9,12},
-                {4,7,10,13},
-                {6,8,11,15}
+                {1, 2, 8, 9},
+                {2, 4, 9, 12},
+                {4, 7, 10, 13},
+                {6, 8, 11, 15}
         };
 
         System.out.println(array.length);
@@ -26,8 +26,8 @@ public class FindInArray {
     private boolean find(int[][] array, int num) {
         // 从第一行最右边列开始
         int row = 0;
-        int col = array[0].length-1;
-        while(row < array.length && col >= 0) {
+        int col = array[0].length - 1;
+        while (row < array.length && col >= 0) {
             if (num == array[row][col]) {
                 System.out.println(row + ":" + col);
                 return true;

@@ -1,6 +1,7 @@
 package com.demo.important.za;
 
 /**
+ * *********************ok
  * 何海涛面试100题 第55题
 	 5的二进制是101，17的二进制10001。还是试着把计算分成三步：第一步各位相加但不计进位，
 	 得到的结果是10100（最后一位两个数都是1，相加的结果是二进制的10。这一步不计进位，因此结果仍
@@ -19,15 +20,26 @@ public class AddTest {
 	public static void main(String[] args) {
 		int result = addWithoutArithmetic(34, 17);
 		System.out.println(result);
+		result = add(34, 17);
+		System.out.println(result);
 	}
 
-	private static int addWithoutArithmetic(int num1, int num2)
-	{
+	private static int addWithoutArithmetic(int num1, int num2) {
         if(num2 == 0) {
 			return num1;
 		}
 		int sum = num1 ^ num2;
 		int carry = (num1 & num2) << 1;
 		return addWithoutArithmetic(sum, carry);
+	}
+
+	public static int add(int a, int b) {
+		while (a != 0) {
+			// 10000 00101
+			int temp = a ^ b; //不带进位和
+			a = (a & b) << 1; //进位
+			b = temp;
+		}
+		return b;
 	}
 }

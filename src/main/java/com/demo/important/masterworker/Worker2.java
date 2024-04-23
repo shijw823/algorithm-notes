@@ -23,7 +23,7 @@ public class Worker2 implements Callable {
 		try {
 			this.doSomething();
 		} catch (Exception e) {
-
+			e.printStackTrace();
 		} finally {
 			latch.countDown();
 		}
@@ -32,6 +32,6 @@ public class Worker2 implements Callable {
 
 	private void doSomething() throws InterruptedException {
 		TimeUnit.SECONDS.sleep(Long.valueOf(new Random().nextInt(3)));
-		System.out.println(Thread.currentThread() + " doSomething");
+		System.out.println(this.i + "->" + Thread.currentThread() + " doSomething");
 	}
 }

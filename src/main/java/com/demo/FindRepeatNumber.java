@@ -21,10 +21,20 @@ public class FindRepeatNumber {
     }
 
     // 时间复杂度：O(n)，空间复杂度:O(1)
+
+    /**
+     * 2 3 1 0 2 5 3
+     * 1 3 2 0 2 5 3
+     * 3 1 2 0 2 5 3
+     * 0 1 2 3 2 5 3
+     *     * # *   #
+     * @param array
+     * @return
+     */
     private List<Integer> findRepeatNum2(int[] array) {
         List<Integer> resultList = new ArrayList<>();
         for (int i = 0; i < array.length; i++) {
-            while(array[i] != i) {
+            while(i != array[i]) {
                 if (array[i] == array[array[i]]) {
                     resultList.add(array[i]);
                     break;

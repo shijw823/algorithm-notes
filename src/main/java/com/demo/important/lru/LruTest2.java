@@ -24,7 +24,8 @@ public class LruTest2 {
 	}
 
 	public static void main(String[] args) {
-		LruCacheLinkedHahMap<String, String> cacheLinkedHahMap = new LruCacheLinkedHahMap<>(3, 0.75f, true);
+		LruCacheLinkedHahMap<String, String> cacheLinkedHahMap = new LruCacheLinkedHahMap<>(3,
+				0.75f, true);
 		cacheLinkedHahMap.put("1", "1");
 		cacheLinkedHahMap.put("2", "2");
 		cacheLinkedHahMap.put("3", "3");

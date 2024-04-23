@@ -51,7 +51,7 @@ public class MyContainer2<T> {
 				consumer.await();
 			}
 			t = lists.removeFirst();
-			count --;
+			count--;
 			producer.signalAll(); //通知生产者进行生产
 		} catch (InterruptedException e) {
 			e.printStackTrace();

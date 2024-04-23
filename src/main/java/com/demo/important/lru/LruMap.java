@@ -24,7 +24,7 @@ public class LruMap<K, V> extends LinkedHashMap<K, V> {
     }
 
     public static void main(String[] args) {
-        LruMap lruMap = new LruMap(3);
+        LruMap<String, Integer> lruMap = new LruMap<>(3);
         lruMap.put("a", 1);
         lruMap.put("b", 2);
         lruMap.put("c", 3);

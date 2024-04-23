@@ -23,6 +23,7 @@ public class LinkListDemo {
         node5.setNext(node6);
         node6.setNext(node4);
 
+        System.out.println(isCycle(head));
         System.out.println(isCycle2(head));
     }
 
@@ -33,7 +34,7 @@ public class LinkListDemo {
 
         Set<String> set = new HashSet<>();
 
-        Node node = head.next;
+        Node node = head;
         while (node != null) {
             if (!set.contains(node.value)) {
                 set.add(node.value);

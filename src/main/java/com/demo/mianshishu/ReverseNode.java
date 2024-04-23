@@ -22,13 +22,15 @@ public class ReverseNode {
         node4.setNext(node5);
         node5.setNext(node6);
         System.out.println(head);
-        // head = reverse(head);
-        // System.out.println(head);
+        System.out.println("----------");
+         head = reverse(head);
+         System.out.println(head);
 
         // Stack<String> stack = reverseNode(head);
         // while (!stack.isEmpty()) {
         //     System.out.println(stack.pop());
         // }
+        //System.out.println("----------");
         // recursivePrint(head);
     }
 

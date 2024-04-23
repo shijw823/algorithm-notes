@@ -1,7 +1,8 @@
 package com.demo;
 
 /**
- * *********************
+ * *********************ok
+ * 有效的数独
  * 36,37
  */
 public class Sudoku {
@@ -45,6 +46,5 @@ public class Sudoku {
         }
 
         return true;
-
     }
 }

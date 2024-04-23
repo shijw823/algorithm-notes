@@ -23,17 +23,19 @@ public class ListTest {
 
 		//private class Itr implements Iterator<E>    int expectedModCount = modCount;
 		//iter.remove(); expectedModCount = modCount;
-//		Iterator<String> iter = list.iterator();
-//		while (iter.hasNext()) {
-//			if("c".equals(iter.next()))
-//				iter.remove();
-//		}
-
-		for(String str : list) {
-			if("c".equals(str)) {
-				list.remove(str);
+		Iterator<String> iter = list.iterator();
+		while (iter.hasNext()) {
+			if("c".equals(iter.next())) {
+				iter.remove();
 			}
 		}
+
+		// ConcurrentModificationException
+		//for(String str : list) {
+		//	if("c".equals(str)) {
+		//		list.remove(str);
+		//	}
+		//}
 
 		for(String str : list) {
 			System.out.println(str);

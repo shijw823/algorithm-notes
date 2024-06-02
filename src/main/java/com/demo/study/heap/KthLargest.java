@@ -38,5 +38,16 @@ public class KthLargest {
         System.out.println(kthLargest.queue);
         // 堆顶的值就是数据流中第几大的数
         System.out.println(kthLargest.queue.peek());
+
+        //Queue<Integer> q = new PriorityQueue<>();
+        //for (int num : nums) {
+        //    q.add(num);
+        //}
+        //System.out.println(q);
+        //int result = -1;
+        //for (int i = 0; i < 4; i++) {
+        //    result = q.poll();
+        //}
+        //System.out.println(result);
     }
 }

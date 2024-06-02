@@ -1,5 +1,6 @@
 package com.demo.temp;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -27,6 +28,8 @@ public class Q58 {
             sentenceArray[i] = sentenceArray[sentenceArray.length - i -1];
             sentenceArray[sentenceArray.length - i -1] = temp;
         }
+        //[students., a, am, I]
+        //return Arrays.toString(sentenceArray);
 
         StringBuilder result = new StringBuilder();
         for (String sentenceTemp : sentenceArray) {

@@ -40,6 +40,7 @@ public class Tree5 {
         System.out.println(tree5.isPreOrder(array));
     }
 
+    // shipin
     // 判断数组的顺序是否是二叉搜索树的前序遍历结果???
     // https://www.bilibili.com/video/BV1QR4y137G4?p=1&vd_source=c0d8eeb8eb3d1738b23ed3000979acdc
     // https://www.bilibili.com/video/BV1cG4y1m7si/?spm_id_from=333.337.search-card.all.click&vd_source=c0d8eeb8eb3d1738b23ed3000979acdc

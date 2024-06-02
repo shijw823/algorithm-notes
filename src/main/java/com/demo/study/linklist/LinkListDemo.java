@@ -36,8 +36,7 @@ public class LinkListDemo {
 
         Node node = head;
         while (node != null) {
-            if (!set.contains(node.value)) {
-                set.add(node.value);
+            if (set.add(node.value)) {
                 node = node.next;
             } else {
                 return true;

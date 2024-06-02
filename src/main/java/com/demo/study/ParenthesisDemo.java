@@ -17,7 +17,7 @@ public class ParenthesisDemo {
     }
 
     public List<String> generateParenthesis(int n) {
-        List<String> result = new ArrayList<>(2 * n);
+        List<String> result = new ArrayList<>();
         generate("", result, n, n);
         System.out.println(result);
         return result;

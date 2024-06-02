@@ -14,6 +14,7 @@ public class StackDemo {
         String str = "](([]))";
 
         System.out.println(isValid(str));
+        System.out.println(isValid3(str));
     }
 
     /**

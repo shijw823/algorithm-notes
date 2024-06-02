@@ -8,7 +8,7 @@ import java.util.PriorityQueue;
  * *********************ok
  * 滑动窗口最大值 O(n) 239
  * 难
- *
+ * shipin
  * 可以采用优先队列， 大顶堆，O(nlogk)
  */
 public class SlidingWindow {
@@ -17,12 +17,13 @@ public class SlidingWindow {
         int[] arr = {1, 3, -1, -3, 5, 3, 6, 7};
         int k = 3;
         SlidingWindow slidingWindow = new SlidingWindow();
-        int[] result = slidingWindow.maxSlidingWindow(arr, k);
+        int[] result = slidingWindow.maxSlidingWindow2(arr, k);
         for (int item : result) {
             System.out.println(item);
         }
     }
 
+    // 这个比较好理解
     public int[] maxSlidingWindow2(int[] nums, int k) {
         if (nums == null || nums.length == 0) {
             return new int[0];

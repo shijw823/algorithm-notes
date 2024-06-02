@@ -10,7 +10,7 @@ import java.util.List;
  * 70，爬楼梯的走法，可以分析为是斐波那契 f(n) = f(n-1) + f(n-2)
  * f(n)：走到第n阶需要的总走法 = 走到第n-1阶需要的总走法（需要走1步）+走到第n-2阶需要的总走法（需要走2步）
  * <p>
- * 322 零钱兑换
+ * 322 零钱兑换 shipin
  */
 public class Fn {
 
@@ -21,6 +21,7 @@ public class Fn {
     }
 
     // O(n)，还有一种比这更优的写法
+    // 0, 1, 1, 2, 3, 5, 8, 13
     private static int fn(int n) {
         int[] f = new int[n + 1];
 
@@ -34,9 +35,10 @@ public class Fn {
         return f[n];
     }
 
+    // 零钱兑换 shipin？
     // 走楼梯的思路， 走到第11阶台阶，最少需要走几步
-    // 1,2,5
-    // 11
+    // 1,2,5 可以走1步，2步，5步
+    // 1+5+5=11
     private static int coinChange(int[] coins, int amount) {
         if (coins.length == 0) {
             return -1;

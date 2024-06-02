@@ -3,6 +3,7 @@ package com.demo.important.algorithm;
 /**
  * @author shijianwei
  * @since 2017/12/20
+ * O(n)
  */
 public class BubbleSort {
 	public static void main(String[] args) {

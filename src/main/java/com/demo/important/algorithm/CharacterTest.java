@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Stack;
 
 /**
+ * 优化：https://mp.weixin.qq.com/s/UGb5B75W3r2yYL673E6LTQ
  * 字符串中括号是否匹配
  *
  * @author shijianwei

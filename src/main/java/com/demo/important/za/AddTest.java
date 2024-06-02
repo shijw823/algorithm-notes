@@ -36,6 +36,14 @@ public class AddTest {
 	public static int add(int a, int b) {
 		while (a != 0) {
 			// 10000 00101
+			// 5 + 6
+			/**
+			 * 0101
+			 * 0110
+			 * 0011 ^
+			 * 1000 进位
+			 */
+
 			int temp = a ^ b; //不带进位和
 			a = (a & b) << 1; //进位
 			b = temp;

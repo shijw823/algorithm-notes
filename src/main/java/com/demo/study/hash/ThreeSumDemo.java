@@ -37,8 +37,8 @@ public class ThreeSumDemo {
                 Set<String> tempStrSet = map.get(nums[i]);
                 for (String str : tempStrSet) {
                     List<Integer> list = new ArrayList<>();
-                    if (!str.contains(String.valueOf(i))) {
-                        String[] indexArray = str.split(":");
+                    String[] indexArray = str.split(":");
+                    if (!indexArray[0].equals(String.valueOf(i)) && !indexArray[1].equals(String.valueOf(i))) {
                         list.add(nums[i]);
                         list.add(nums[Integer.parseInt(indexArray[0])]);
                         list.add(nums[Integer.parseInt(indexArray[1])]);

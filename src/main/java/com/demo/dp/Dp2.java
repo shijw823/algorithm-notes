@@ -7,6 +7,7 @@ package com.demo.dp;
  * DP[i]:从头到第i个元素最长上升子序列的长度
  * max(DP[0],DP[1],...DP[n-1])
  * O(n*n)
+ * shipin
  *
  * @author shijianwei
  * @since 2020/04/06

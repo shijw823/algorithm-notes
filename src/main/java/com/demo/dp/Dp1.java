@@ -16,6 +16,7 @@ import java.util.List;
  * 返回 11=2+3+5+1
  *
  * O(m * n)
+ * shipin
  *
  * @author shijianwei
  * @since 2020/04/06
@@ -37,6 +38,7 @@ public class Dp1 {
         }
         return triangle.get(0).get(0);
     }
+    // DP[i][j] = min(DP[i+1][j], DP[i+1][j+1]) + triangle[i][j]
     public int minimumTotal2(List<List<Integer>> triangle) {
         // 最后一行4列
         int[] dp = new int[triangle.get(triangle.size()-1).size()];

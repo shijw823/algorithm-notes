@@ -10,7 +10,8 @@ public class FactorialTest {
 
     public static void main(String[] args) {
         FactorialTest factorialTest = new FactorialTest();
-        System.out.println(factorialTest.fn(5));
+        System.out.println(factorialTest.fn(8));
+        System.out.println(factorialTest.fn_(8));
         System.out.println(factorialTest.fn2(2, 10));
     }
 
@@ -42,6 +43,19 @@ public class FactorialTest {
 
         for (int i = 2; i <= num; i++) {
             array[i] = fn(i - 1) * i;
+            //System.out.println("---------");
+        }
+        return array[num];
+    }
+
+    private int fn_(int num) {
+        int[] array = new int[num + 1];
+
+        array[1] = 1;
+
+        for (int i = 2; i <= num; i++) {
+            array[i] = array[i - 1] * i;
+            System.out.println("------------");
         }
         return array[num];
     }

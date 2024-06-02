@@ -4,6 +4,9 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * @see com.demo.important.lru.LruTest
+ */
 public class LRUCache {
     private MyLinkedHashMap<Integer, Integer> cache;
 

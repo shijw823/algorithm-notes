@@ -30,7 +30,7 @@ public class PowDemo {
     public double pow2(int x, int n) {
         // x == 0 考虑
         if (n < 0) {
-            return 1.0 / pow(x, -n);
+            return 1.0 / pow2(x, -n);
         }
         if (n == 0) {
             return 1;

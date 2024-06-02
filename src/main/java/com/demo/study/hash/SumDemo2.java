@@ -31,7 +31,7 @@ public class SumDemo2 {
             Set<Integer> indexSet = map.get(remain);
             if (indexSet != null && !indexSet.contains(j)) {
                 for (Integer index : indexSet) {
-                    // 去掉重复，比如，1,2；2,1
+                     //去掉重复，比如，1,2；2,1
                     if (j > index) {
                         List<Integer> list = new ArrayList<>();
                         list.add(index);

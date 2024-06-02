@@ -12,6 +12,7 @@ public class Q50 {
 
     public static void main(String[] args) {
         String str = "abaccdeff";
+        //String str = "ffedccaba";
         System.out.println(getCharacter(str));
         System.out.println(getCharacter2(str));
 

@@ -23,7 +23,6 @@ public class MyContainer<T> {
 
         list.add(t);
         this.notifyAll();
-
     }
 
     public synchronized T get() {

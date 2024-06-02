@@ -1,6 +1,7 @@
 package com.demo.important.algorithm;
 
 /**
+ * *********************
  * snowflake算法实现分布式系统唯一id
  *
  * @author shijianwei

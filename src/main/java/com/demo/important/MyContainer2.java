@@ -27,8 +27,8 @@ public class MyContainer2<T> {
 	private Condition consumer = lock.newCondition();
 
 	public void put(T t) {
+		lock.lock();
 		try {
-			lock.lock();
 			while(lists.size() == MAX) { //想想为什么用while而不是用if？
 				producer.await();
 			}
@@ -45,8 +45,8 @@ public class MyContainer2<T> {
 
 	public T get() {
 		T t = null;
+		lock.lock();
 		try {
-			lock.lock();
 			while(lists.size() == 0) {
 				consumer.await();
 			}
@@ -62,8 +62,8 @@ public class MyContainer2<T> {
 	}
 
 	public int getCount() {
+		lock.lock();
 		try {
-			lock.lock();
 			return count;
 		} catch (Exception e) {
 			e.printStackTrace();

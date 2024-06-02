@@ -25,7 +25,8 @@ public class MajorityDemo {
 
     // 好一些
     public int majorityElement2(int[] nums) {
-        int majority = 0;
+        int majority = -1;
+        int maxCount = 0;
         Map<Integer, Integer> map = new HashMap<>();
         for (int num: nums) {
             if (map.containsKey(num)) {
@@ -33,7 +34,8 @@ public class MajorityDemo {
             } else {
                 map.put(num, 1);
             }
-            if (map.get(num) > majority) {
+            if (map.get(num) > maxCount) {
+                maxCount = map.get(num);
                 majority = num;
             }
         }

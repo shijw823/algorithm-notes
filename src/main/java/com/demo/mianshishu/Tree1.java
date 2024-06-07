@@ -13,7 +13,7 @@ import java.util.*;
  */
 public class Tree1 {
     private List<List<Integer>> result = new ArrayList<>();
-    private List<Integer> list = new ArrayList<>();
+    private LinkedList<Integer> list = new LinkedList<>();
 
     public static void main(String[] args) {
         TreeNode root = new TreeNode(10);
@@ -44,7 +44,7 @@ public class Tree1 {
         target -= root.val;
         //如果target为0，且左右子树都为空，说明找到了一条路径
         if (target == 0 && root.left == null && root.right == null) {
-            result.add(new LinkedList<>(list));
+            result.add(new ArrayList<>(list));
             //return;
         }
 
@@ -54,8 +54,8 @@ public class Tree1 {
         dfs(root.right, target);
         //回溯到上一层，删除当前层的元素
         System.out.println(root.val + "-------------");
-        //list.removeLast();
-        list.remove(list.size()-1);
+        list.removeLast();
+        //list.remove(list.size()-1);
     }
 
     //public void dfs(TreeNode node, int level, Map<Integer, List<Integer>> map, Stack<Integer> stack, int sum) {

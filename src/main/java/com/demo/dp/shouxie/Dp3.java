@@ -30,6 +30,7 @@ public class Dp3 {
      *  0 1
      *  2 3
      *  0 == 1+2  状态转移方程
+     *  0这个位置的走法 = 走向1的走法 + 走向2的走法
      * @param grid
      * @param row
      * @param col

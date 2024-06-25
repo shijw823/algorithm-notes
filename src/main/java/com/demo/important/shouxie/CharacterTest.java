@@ -19,6 +19,7 @@ public class CharacterTest {
         map.put(']', '[');
 
         System.out.println(isMatch("(abc)a)("));
+        System.out.println(isMatch2("(abc)a)("));
     }
 
     private static boolean isMatch(String strs) {
@@ -36,5 +37,22 @@ public class CharacterTest {
             }
         }
         return stack.empty();
+    }
+
+    private static boolean isMatch2(String strs) {
+        int sum = 0;
+        for (int i = 0; i < strs.length(); i++) {
+            char c = strs.charAt(i);
+            if (c == '(') {
+                sum++;
+            } else if (c == ')') {
+                if (sum == 0) {
+                    return false;
+                } else {
+                    sum--;
+                }
+            }
+        }
+        return sum == 0;
     }
 }

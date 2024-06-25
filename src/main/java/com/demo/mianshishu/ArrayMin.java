@@ -1,15 +1,15 @@
 package com.demo.mianshishu;
 
 /**
- * *********************ok
+ * ############
  * 旋转数组的最小值
  * 153
  */
 public class ArrayMin {
 
     public static void main(String[] args) {
-         //int[] array = new int[]{3, 4, 5, 1, 2};
-        int[] array = new int[]{4, 5, 1, 2, 3};
+         int[] array = new int[]{3, 4, 5, 1, 2};
+        //int[] array = new int[]{4, 5, 1, 2, 3};
         System.out.println(new ArrayMin().findMin(array));
     }
 
@@ -32,6 +32,7 @@ public class ArrayMin {
                 right = mid;
             }
         }
+        System.out.println("left:" + left + ",right:" + right);
         return nums[left];
     }
 }

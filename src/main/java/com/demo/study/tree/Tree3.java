@@ -24,6 +24,7 @@ public class Tree3 {
         Tree3 tree3 = new Tree3();
         System.out.println(tree3.maxDepth(root));
         System.out.println(tree3.minDepth(root));
+        System.out.println(tree3.minDepth_(root));
     }
 
     // 递归 or BFS
@@ -48,6 +49,17 @@ public class Tree3 {
         //    }
         //}
         //return level;
+    }
+
+    int minDepth_(TreeNode node) {
+        if (node == null) {
+            return 0;
+        }
+        if (node.left == null || node.right == null) {
+            return 1 + minDepth_(node.left) + minDepth_(node.right);
+        }
+
+        return 1 + Math.min(minDepth_(node.left), minDepth_(node.right));
     }
 
     // 递归 or BFS

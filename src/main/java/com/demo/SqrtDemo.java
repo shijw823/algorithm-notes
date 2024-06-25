@@ -14,7 +14,8 @@ public class SqrtDemo {
         int result = -1;
 
         while(left <= right) {
-            int mid = (left + right) / 2;
+            //int mid = (left + right) / 2;
+            int mid = left + (right - left) / 2;
             if (mid == x / mid) {
                 return mid;
             }  else if (mid > x / mid) {

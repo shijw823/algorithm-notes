@@ -20,6 +20,7 @@ public class CharacterTest {
         map.put(']', '[');
 
         System.out.println(isMatch("(abc)a)("));
+        System.out.println(isMatch2("(abc)a)("));
     }
 
     private static boolean isMatch(String strs) {
@@ -42,5 +43,28 @@ public class CharacterTest {
         }
 
         return stack.empty();
+    }
+
+    private static boolean isMatch2(String s){
+        if(s == null || s.length() < 1) {
+            return true;
+        }
+        // 用来记录遇到的 "(" 的个数
+        int sum = 0;
+        // 遍历字符串
+        for(int i = 0; i < s.length(); i++){
+            // 获取字符串的第 i 个字符
+            char c = s.charAt(i);
+            if(c == '('){
+                sum++;
+            }else if (c == ')'){
+                if(sum == 0) {
+                    return false;
+                } else {
+                    sum--;
+                }
+            }
+        }
+        return sum == 0;
     }
 }

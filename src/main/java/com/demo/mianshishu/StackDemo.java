@@ -32,10 +32,10 @@ public class StackDemo {
     public void push(int value) {
         stack.push(value);
 
-        if (minStack.isEmpty() || value < minStack.peek()) {
-            minStack.push(value);
-        } else {
+        if (!minStack.isEmpty() && minStack.peek() < value) {
             minStack.push(minStack.peek());
+        } else {
+            minStack.push(value);
         }
     }
 

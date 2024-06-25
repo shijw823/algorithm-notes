@@ -10,8 +10,8 @@ package com.demo.study;
 public class PowDemo {
     public static void main(String[] args) {
         PowDemo powDemo = new PowDemo();
-        System.out.println(powDemo.myPow2(2.0, -4));
-        System.out.println(powDemo.pow2(2, -4));
+        System.out.println(powDemo.myPow2(2.0, -3));
+        System.out.println(powDemo.pow2(2, -3));
     }
 
     public int pow(int x, int n) {
@@ -66,21 +66,20 @@ public class PowDemo {
         }
 
         double result = 1.0;
-        double temp = x;
 
         // 处理n为负数的情况
         if (n < 0) {
-            temp = 1 / x;
+            x = 1 / x;
             n = -n;
         }
 
         while (n > 0) {
             // 如果n是奇数
             if ((n & 1) == 1) {
-                result *= temp;
+                result *= x;
             }
             n >>= 1;
-            temp *= temp;
+            x *= x;
         }
 
         return result;

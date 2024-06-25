@@ -12,8 +12,25 @@ public class AnagramDemo {
     public static void main(String[] args) {
         AnagramDemo anagramDemo = new AnagramDemo();
         System.out.println(anagramDemo.isAnagram("car", "act"));;
+        System.out.println(anagramDemo.isAnagram_("car", "act"));;
     }
 
+    public boolean isAnagram_(String s, String t) {
+        if (s.length() != t.length()) {
+            return false;
+        }
+        int[] array = new int[26];
+        for (int i = 0; i < s.length(); i++) {
+            array[s.charAt(i) - 'a']++;
+        }
+        for (int i = 0; i < t.length(); i++) {
+            if (array[t.charAt(i) - 'a'] == 0) {
+                return false;
+            }
+            array[t.charAt(i) - 'a']--;
+        }
+        return true;
+    }
 
     public boolean isAnagram(String s, String t) {
         Map<Character, Integer> sMap = new HashMap<>();
@@ -34,10 +51,7 @@ public class AnagramDemo {
     private void convertStr2Map(String s, Map<Character, Integer> sMap) {
         for (int i = 0; i < s.length(); i++) {
             Character key = s.charAt(i);
-            Integer count = sMap.putIfAbsent(key, 1);
-            if (count != null) {
-                sMap.put(key, sMap.get(key) + 1);
-            }
+            sMap.put(key, sMap.getOrDefault(key, 0) + 1);
         }
     }
 

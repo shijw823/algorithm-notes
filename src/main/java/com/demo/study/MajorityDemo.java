@@ -29,11 +29,7 @@ public class MajorityDemo {
         int maxCount = 0;
         Map<Integer, Integer> map = new HashMap<>();
         for (int num: nums) {
-            if (map.containsKey(num)) {
-                map.put(num, map.get(num) + 1);
-            } else {
-                map.put(num, 1);
-            }
+            map.put(num, map.getOrDefault(num, 0) + 1);
             if (map.get(num) > maxCount) {
                 maxCount = map.get(num);
                 majority = num;

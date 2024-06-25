@@ -40,7 +40,7 @@ public class Dp3 {
         for (int r = row - 1; r >= 0; r--) {
             for (int c = col - 1; c >= 0; c--) {
                 if ((r == row - 1) || (c == col - 1)) {
-                    // 最后一行或者最后一列, 只有向右的或向下的，所以为1
+                    // 最后一行或者最后一列, 只有向右的或向下的一种走法，所以为1
                     // 0 == 1+2  状态转移方程
                     opt[r][c] = 1;
                 } else if (grid[r][c]) {

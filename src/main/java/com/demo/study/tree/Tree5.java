@@ -36,8 +36,10 @@ public class Tree5 {
         //Integer[] array = new Integer[] {1,6,3,4,7,5};
         //Integer[] array = new Integer[] {5,2,6,1,3};
         Integer[] array = new Integer[] {5,2,1,3,6};
+        Integer[] array2 = new Integer[] {1,3,2,6,5};
         //Integer[] array = new Integer[] {7, 4, 1, 6, 5, 10, 8, 11};
         System.out.println(tree5.isPreOrder(array));
+        System.out.println(tree5.isPostOrder(array2));
     }
 
     // shipin
@@ -59,6 +61,24 @@ public class Tree5 {
 
             while (!stack.isEmpty() && array[i] > stack.peek()) {
                 min = stack.pop();
+            }
+
+            stack.push(array[i]);
+        }
+        return true;
+    }
+
+    public boolean isPostOrder(Integer[] array) {
+        Stack<Integer> stack = new Stack<>();
+        int max = Integer.MAX_VALUE;
+
+        for (int i = array.length-1; i >= 0; i--) {
+            if (array[i] > max) {
+                return false;
+            }
+
+            while (!stack.isEmpty() && array[i] < stack.peek()) {
+                max = stack.pop();
             }
 
             stack.push(array[i]);

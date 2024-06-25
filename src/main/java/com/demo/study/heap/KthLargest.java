@@ -12,7 +12,7 @@ public class KthLargest {
 
     public KthLargest(int k, int[] nums) {
         this.k = k;
-        this.queue = new PriorityQueue<>(k);
+        this.queue = new PriorityQueue<>();
 
         for (int num : nums) {
             this.add(num);
@@ -38,6 +38,10 @@ public class KthLargest {
         System.out.println(kthLargest.queue);
         // 堆顶的值就是数据流中第几大的数
         System.out.println(kthLargest.queue.peek());
+        int size = kthLargest.queue.size();
+        for (int i = 0; i < size; i++) {
+            System.out.println(kthLargest.queue.poll());
+        }
 
         //Queue<Integer> q = new PriorityQueue<>();
         //for (int num : nums) {

@@ -5,6 +5,8 @@ import java.util.*;
 /**
  * *********************ok
  * 三个数求和为零 15
+ * <p>
+ * https://leetcode.cn/problems/3sum/
  * O(n * n)
  */
 public class ThreeSumDemo {
@@ -15,7 +17,87 @@ public class ThreeSumDemo {
         for (List<Integer> list : result) {
             System.out.println(list);
         }
+        System.out.println("------------------");
+        result = new ThreeSumDemo().threeSum_(array);
+        for (List<Integer> list : result) {
+            System.out.println(list);
+        }
+
+        System.out.println("------------------");
+        result = new ThreeSumDemo().threeSum_2(array);
+        for (List<Integer> list : result) {
+            System.out.println(list);
+        }
     }
+
+    public List<List<Integer>> threeSum_2(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        Arrays.sort(nums);
+
+        // 存储每个数最后出现的位置
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            map.put(nums[i], i);
+        }
+
+        for (int i = 0; i < nums.length - 1; i++) {
+//            // 跳过重复
+//            if (i > 0 && nums[i] == nums[i - 1]) {
+//                continue;
+//            }
+
+            for (int j = i + 1; j < nums.length; j++) {
+//                // 跳过重复
+//                if (j > i + 1 && nums[j] == nums[j - 1]) {
+//                    continue;
+//                }
+                int target = -nums[i] - nums[j];
+                // 确保第三个数的索引大于j，避免重复
+                if (map.containsKey(target) && map.get(target) > j) {
+                    // 去重
+                    if (!result.contains(Arrays.asList(nums[i], nums[j], target))) {
+                        result.add(Arrays.asList(nums[i], nums[j], target));
+                    }
+                }
+            }
+        }
+
+        return result;
+    }
+
+    // 使用HashMap（更通用的N数之和解法）
+    public List<List<Integer>> threeSum_(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        Arrays.sort(nums);
+
+        // 存储每个数最后出现的位置
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            map.put(nums[i], i);
+        }
+
+        for (int i = 0; i < nums.length - 1; i++) {
+            // 跳过重复
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
+
+            for (int j = i + 1; j < nums.length; j++) {
+                // 跳过重复
+                if (j > i + 1 && nums[j] == nums[j - 1]) {
+                    continue;
+                }
+                int target = -nums[i] - nums[j];
+                // 确保第三个数的索引大于j，避免重复
+                if (map.containsKey(target) && map.get(target) > j) {
+                    result.add(Arrays.asList(nums[i], nums[j], target));
+                }
+            }
+        }
+
+        return result;
+    }
+
 
     public List<List<Integer>> threeSum(int[] nums) {
         Arrays.sort(nums);

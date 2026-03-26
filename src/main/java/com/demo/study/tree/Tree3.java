@@ -55,8 +55,18 @@ public class Tree3 {
         if (node == null) {
             return 0;
         }
-        if (node.left == null || node.right == null) {
-            return 1 + minDepth_(node.left) + minDepth_(node.right);
+//        if (node.left == null || node.right == null) {
+//            return 1 + minDepth_(node.left) + minDepth_(node.right);
+//        }
+
+        // 左子树为空，只计算右子树
+        if (node.left == null) {
+            return 1 + minDepth_(node.right);
+        }
+
+        // 右子树为空，只计算左子树
+        if (node.right == null) {
+            return 1 + minDepth_(node.left);
         }
 
         return 1 + Math.min(minDepth_(node.left), minDepth_(node.right));

@@ -45,9 +45,9 @@ public class SqrtDemo {
             //double mid = (left + right) / 2;
             double mid = left + (right - left) / 2;
             System.out.println("mid=" + mid);
-            if (mid - x / mid < 0.00001) {
+            if (mid * mid - x < 0.00001) {
                 return mid;
-            }  else if (mid > x / mid) {
+            }  else if (mid * mid - x > 0) {
                 // 注意这里
                 right = mid;
             } else {

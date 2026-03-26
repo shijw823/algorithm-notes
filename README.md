@@ -35,9 +35,9 @@
 1. https://leetcode.com/problems/reverse-linked-list/  第6讲
 2. https://leetcode.com/problems/linked-list-cycle 第6讲
 3. https://leetcode.com/problems/swap-nodes-in-pairs  第6讲
-4. https://leetcode.com/problems/linked-list-cycle-ii 第6讲
-5. https://leetcode.com/problems/reverse-nodes-in-k-group/ 第6讲
-6. https://leetcode.com/problems/kth-largest-element-in-a-stream/  第11讲
+4. https://leetcode.com/problems/linked-list-cycle-ii 第6讲 X
+5. https://leetcode.com/problems/reverse-nodes-in-k-group/ 第6讲 X
+6. https://leetcode.com/problems/kth-largest-element-in-a-stream/  第11讲 X
 7. https://leetcode.com/problems/sliding-window-maximum/ 第12讲
 8. https://leetcode.com/problems/validate-binary-search-tree/ 第18讲
 
@@ -55,9 +55,6 @@
 - 二分查找
 - DP
 
-# 58沈剑
-- https://mp.weixin.qq.com/s/3LR-iVC4zgj0tGhZ780PcQ
-  
+# 58沈剑架构
 - https://mp.weixin.qq.com/s/V1hGa6D9aGrP6PiCWEmc0w
-
 - https://mp.weixin.qq.com/s/syli7vs7Jw_VOTl5B2YUqg

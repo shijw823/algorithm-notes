@@ -16,8 +16,8 @@ public class ReverseStr {
 		int len = chars.length / 2;
 		for (int i = 0; i < len; i++) {
 			char temp = chars[i];
-			chars[i] = chars[str.length() - i -1];
-			chars[str.length() - i -1] = temp;
+			chars[i] = chars[str.length() - i - 1];
+			chars[str.length() - i - 1] = temp;
 		}
 		System.out.println(chars);
 	}

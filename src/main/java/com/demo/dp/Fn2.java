@@ -8,10 +8,21 @@ package com.demo.dp;
 public class Fn2 {
 
     public static void main(String[] args) {
-        int[] array = new int[7];
+        int[] array = new int[9];
 
-        System.out.println(f(6, array));
-        System.out.println(fib(6));
+        System.out.println(f(8, array));
+        System.out.println(f2(8));
+        System.out.println(fib(8));
+    }
+
+    private static int f2(int n) {
+        int[] array = new int[n+1];
+        array[0] = 0;
+        array[1] = 1;
+        for (int i = 2; i < array.length; i++) {
+            array[i] = array[i-1] + array[i-2];
+        }
+        return array[n];
     }
 
     // O(n)

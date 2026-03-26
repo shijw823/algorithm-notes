@@ -2,6 +2,7 @@ package com.demo.study.tree;
 
 /**
  * 二叉搜索树的最近公共祖先
+ * https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/description/
  * 235,236
  * **********************ok
  * O(n)
@@ -15,7 +16,8 @@ public class Tree4 {
 
     }
 
-    // 普通的树
+    // 二叉树 ？？？  时间复杂度 O(n)，空间复杂度 O(h)
+    // https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/description/
     TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null || root == p || root == q) {
             return root;

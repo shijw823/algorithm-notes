@@ -1,5 +1,7 @@
 package com.demo.dp;
 
+import java.util.Arrays;
+
 /**
  * 300
  * 最长上升子序列的长度
@@ -32,6 +34,36 @@ public class Dp2 {
         }
         return result;
     }
+
+    /**
+     * 动态规划解法
+     * 时间复杂度: O(n²) 空间复杂度: O(n)
+     *
+     * 思路：dp[i] 表示以 nums[i] 结尾的最长上升子序列的长度
+     * 对于每个 i，检查所有 j < i，如果 nums[i] > nums[j]，则 dp[i] = max(dp[i], dp[j] + 1)
+     */
+    public static int lengthOfLIS2(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+
+        int n = nums.length;
+        int[] dp = new int[n];
+        int maxLen = 1;
+
+        // 初始化：每个元素本身至少是一个长度为1的上升子序列
+        Arrays.fill(dp, 1);
+
+        for (int i = 1; i < n; i++) {
+            for (int j = 0; j < i; j++) {
+                if (nums[i] > nums[j]) {
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
+                }
+            }
+            maxLen = Math.max(maxLen, dp[i]);
+        }
+
+        return maxLen;
+    }
+
     //public int lengthOfLIS(int[] nums) {
     //    int[] dp = new int[nums.length];
     //    int maxLenJ = 0;
@@ -52,5 +84,6 @@ public class Dp2 {
         int[] nums = new int[]{10, 9, 2, 5, 3, 7, 101, 18, 20};
         // 2，3，7，18，20
         System.out.println(new Dp2().lengthOfLIS(nums));
+        System.out.println(new Dp2().lengthOfLIS2(nums));
     }
 }

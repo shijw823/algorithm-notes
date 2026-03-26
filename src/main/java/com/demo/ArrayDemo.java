@@ -38,7 +38,7 @@ public class ArrayDemo {
             while(k < array.length && array[k] % 2 == 1) {
                 k += 2;
             }
-            if (j < array.length) {
+            if (j < array.length && k < array.length) {
                 int temp = array[j];
                 array[j] = array[k];
                 array[k] = temp;

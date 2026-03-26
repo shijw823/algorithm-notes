@@ -33,6 +33,7 @@ public class AddTest {
 		return addWithoutArithmetic(sum, carry);
 	}
 
+	// 2+3
 	public static int add(int a, int b) {
 		while (a != 0) {
 			// 10000 00101

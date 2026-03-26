@@ -14,7 +14,7 @@ public class FindRepeatNumber {
 
     public static void main(String[] args) {
         FindRepeatNumber test = new FindRepeatNumber();
-        int[] array = new int[] {2,3,1,0,2,5,3};
+        int[] array = new int[] {2,3,1,0,2,5,3,3,2};
         List<Integer> resultList = test.findRepeatNum2(array);
         System.out.println(resultList);
 
@@ -34,9 +34,13 @@ public class FindRepeatNumber {
     private List<Integer> findRepeatNum2(int[] array) {
         List<Integer> resultList = new ArrayList<>();
         for (int i = 0; i < array.length; i++) {
+            // 当前位置i的值不等于i时，进行置换
             while(i != array[i]) {
+                // 如果当前值与目标位置的值相等，说明找到重复
                 if (array[i] == array[array[i]]) {
-                    resultList.add(array[i]);
+                    if (!resultList.contains(array[i])) {
+                        resultList.add(array[i]);
+                    }
                     break;
                 } else {
                     int temp = array[i];
@@ -56,7 +60,7 @@ public class FindRepeatNumber {
         Map<Integer, Integer> resultMap = new HashMap<>();
         for (int i = 0; i < array.length; i++) {
             Integer result = resultMap.putIfAbsent(array[i], 1);
-            if (result != null) {
+            if (result != null && !resultList.contains(array[i])) {
                 resultList.add(array[i]);
             }
 

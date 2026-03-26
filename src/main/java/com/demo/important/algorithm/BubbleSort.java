@@ -22,17 +22,17 @@ public class BubbleSort {
 		int count = 0;
 
 		for (int i = 0; i < arrays.length - 1; i++) {
-			boolean breakFlag = true;
+			boolean swapped = false;
 			for (int j = 0; j < arrays.length - i - 1; j++) {
 				count++;
 				if (arrays[j] > arrays[j + 1]) {
 					int temp = arrays[j];
 					arrays[j] = arrays[j + 1];
 					arrays[j + 1] = temp;
-					breakFlag = false;
+					swapped = true;
 				}
 			}
-			if(breakFlag) {
+			if(!swapped) {
 				break;
 			}
 		}

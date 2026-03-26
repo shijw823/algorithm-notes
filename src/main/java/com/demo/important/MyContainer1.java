@@ -14,8 +14,8 @@ import java.util.LinkedList;
 import java.util.concurrent.TimeUnit;
 
 public class MyContainer1<T> {
-	final private LinkedList<T> lists = new LinkedList<>();
-	final private int MAX = 10; //最多10个元素
+	private final LinkedList<T> lists = new LinkedList<>();
+	private static final int MAX = 10; //最多10个元素
 
 	public synchronized void put(T t) {
 		while(lists.size() == MAX) { //想想为什么用while而不是用if？
@@ -53,7 +53,9 @@ public class MyContainer1<T> {
 		//启动消费者线程
 		for(int i=0; i<10; i++) {
 			new Thread(()->{
-				for(int j=0; j<5; j++) System.out.println(c.get());
+				for(int j=0; j<5; j++) {
+					System.out.println(c.get());
+				}
 			}, "c" + i).start();
 		}
 
@@ -66,7 +68,9 @@ public class MyContainer1<T> {
 		//启动生产者线程
 		for(int i=0; i<2; i++) {
 			new Thread(()->{
-				for(int j=0; j<25; j++) c.put(Thread.currentThread().getName() + " " + j);
+				for(int j=0; j<25; j++) {
+					c.put(Thread.currentThread().getName() + " " + j);
+				}
 			}, "p" + i).start();
 		}
 	}

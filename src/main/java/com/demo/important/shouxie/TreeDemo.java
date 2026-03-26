@@ -29,6 +29,10 @@ public class TreeDemo {
         Map<Integer, Integer> resultMap = new HashMap<>();
         treeDemo.dfs(root, 1, resultMap);
         System.out.println(resultMap.values());
+
+        Map<Integer, List<Integer>> resultMap2 = new HashMap<>();
+        treeDemo.dfs2(root, 1, resultMap2);
+        System.out.println(resultMap2.values());
     }
 
     public List<List<Integer>> bfs(TreeNode node) {
@@ -63,6 +67,17 @@ public class TreeDemo {
             dfs(node.left, level, resultMap);
             dfs(node.right, level, resultMap);
         }
+    }
+
+    public void dfs2(TreeNode node, int level, Map<Integer, List< Integer>> resultMap) {
+        if (node != null) {
+           List<Integer> list =  resultMap.computeIfAbsent(level, k -> new ArrayList<>());
+           list.add(node.val);
+           level++;
+           dfs2(node.left, level, resultMap);
+           dfs2(node.right, level, resultMap);
+        }
+
     }
 
 

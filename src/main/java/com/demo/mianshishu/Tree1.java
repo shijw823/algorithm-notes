@@ -8,7 +8,6 @@ import java.util.*;
  *   10
  *  5  12
  * 14    7
- *
  * 153 shipin
  */
 public class Tree1 {
@@ -32,6 +31,37 @@ public class Tree1 {
         List<List<Integer>> resultList = new ArrayList<>();
         tree1.dfs(root, 29);
         System.out.println(tree1.result);
+        resultList = tree1.findPaths(root, 29);
+        System.out.println(resultList);
+    }
+
+    public List<List<Integer>> findPaths(TreeNode root, int targetSum) {
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> currentPath = new ArrayList<>();
+        dfs(root, targetSum, currentPath, result);
+        return result;
+    }
+
+    private void dfs(TreeNode node, int remainingSum,
+                            List<Integer> currentPath, List<List<Integer>> result) {
+        if (node == null) {
+            return;
+        }
+
+        // 添加当前节点到路径
+        currentPath.add(node.val);
+
+        // 如果是叶子节点且剩余和等于当前节点值
+        if (node.left == null && node.right == null && remainingSum == node.val) {
+            result.add(new ArrayList<>(currentPath));
+        } else {
+            // 递归遍历左右子树
+            dfs(node.left, remainingSum - node.val, currentPath, result);
+            dfs(node.right, remainingSum - node.val, currentPath, result);
+        }
+
+        // 回溯，移除当前节点
+        currentPath.remove(currentPath.size() - 1);
     }
 
     private void dfs(TreeNode root, int target) {

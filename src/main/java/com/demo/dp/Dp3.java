@@ -4,7 +4,7 @@ package com.demo.dp;
  * *********************ok
  * 动态规划 dynamic programming
  * 从起点走到终点，共有几种走法
- * 63
+ * 63 https://leetcode.cn/problems/unique-paths-ii/
  */
 public class Dp3 {
     public static void main(String[] args) {
@@ -60,6 +60,7 @@ public class Dp3 {
         return opt[0][0];
     }
 
+    // 从右下角走到左上角
     public static int uniquePathsWithObstacles(boolean[][] grid) {
         int row = grid.length;
         int col = grid[0].length;
@@ -70,12 +71,38 @@ public class Dp3 {
                     opt[i][j] = 1;
                 } else if (grid[i][j]) {
                     opt[i][j] = 0;
-                } else if(!grid[i][j]) {
+                } else {
                     opt[i][j] = opt[i][j+1] + opt[i+1][j];
                 }
             }
         }
         return opt[0][0];
+    }
+
+    // 从左上角走到右下角
+    public int uniquePaths(int m, int n) {
+        // 创建dp数组，dp[i][j]表示从起点到(i,j)的路径数
+        int[][] dp = new int[m][n];
+
+        // 初始化第一行和第一列
+        // 第一行：从起点只能一直向右走，每条路径都是1
+        for (int j = 0; j < n; j++) {
+            dp[0][j] = 1;
+        }
+        // 第一列：从起点只能一直向下走，每条路径都是1
+        for (int i = 0; i < m; i++) {
+            dp[i][0] = 1;
+        }
+
+        // 填充dp数组
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                // 到达(i,j)的路径数 = 从上边来的路径数 + 从左边来的路径数
+                dp[i][j] = dp[i-1][j] + dp[i][j-1];
+            }
+        }
+
+        return dp[m-1][n-1];
     }
 
 }

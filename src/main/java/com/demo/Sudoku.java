@@ -2,6 +2,8 @@ package com.demo;
 
 /**
  * *********************ok
+ * https://leetcode.cn/problems/valid-sudoku/description/
+ * https://leetcode.cn/problems/sudoku-solver/description/
  * 有效的数独
  * 36,37
  */

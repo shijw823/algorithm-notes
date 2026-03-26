@@ -7,6 +7,7 @@ import java.util.Stack;
 /**
  * 前中后序遍历
  * **********************ok
+ * #####
  *
  * @author shijianwei
  * @since 2020/04/05
@@ -50,15 +51,38 @@ public class Tree5 {
     // 5,2,1,3,6  : true
     // 7 4 1 6 5 10 8 11 : true
     // O(n)
+
+    /**
+     * 1. 二叉搜索树前序遍历的特点
+     * 第一个元素是根节点
+     * 后续序列分为两部分：所有小于根节点的元素（左子树），然后所有大于根节点的元素（右子树）
+     * 左右子树同样要满足这个性质
+     *
+     *
+     * @param array
+     * @return
+     */
     public boolean isPreOrder(Integer[] array) {
         Stack<Integer> stack = new Stack<>();
-        int min = -1;
+        int min = Integer.MIN_VALUE;
 
         for (int i = 0; i < array.length; i++) {
             if (array[i] < min) {
                 return false;
             }
 
+            /**
+             * 当前值大于栈顶节点
+             *
+             * 说明我们正在进入某个节点的右子树
+             *
+             * 栈顶节点已经完成了它左子树的遍历
+             *
+             * 弹出栈顶节点，并更新min为该节点的值
+             *
+             * 5,2,1,3,6
+             * min的值依次为1， 2， 3， 5
+             */
             while (!stack.isEmpty() && array[i] > stack.peek()) {
                 min = stack.pop();
             }
@@ -72,6 +96,7 @@ public class Tree5 {
         Stack<Integer> stack = new Stack<>();
         int max = Integer.MAX_VALUE;
 
+        // 最后一个节点是根节点
         for (int i = array.length-1; i >= 0; i--) {
             if (array[i] > max) {
                 return false;

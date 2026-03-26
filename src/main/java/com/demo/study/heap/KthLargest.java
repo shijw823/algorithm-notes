@@ -1,6 +1,7 @@
 package com.demo.study.heap;
 
 import java.util.PriorityQueue;
+import java.util.Queue;
 
 /**
  * 时间复杂度 nlgk
@@ -12,6 +13,7 @@ public class KthLargest {
 
     public KthLargest(int k, int[] nums) {
         this.k = k;
+        // 小顶堆
         this.queue = new PriorityQueue<>();
 
         for (int num : nums) {
@@ -38,20 +40,23 @@ public class KthLargest {
         System.out.println(kthLargest.queue);
         // 堆顶的值就是数据流中第几大的数
         System.out.println(kthLargest.queue.peek());
+        System.out.println("--------------");
         int size = kthLargest.queue.size();
         for (int i = 0; i < size; i++) {
             System.out.println(kthLargest.queue.poll());
         }
 
-        //Queue<Integer> q = new PriorityQueue<>();
-        //for (int num : nums) {
-        //    q.add(num);
-        //}
-        //System.out.println(q);
-        //int result = -1;
-        //for (int i = 0; i < 4; i++) {
-        //    result = q.poll();
-        //}
-        //System.out.println(result);
+        // 从大到小， 大顶堆
+        Queue<Integer> q = new PriorityQueue<>((i,j) -> j - i);
+        for (int num : nums) {
+            q.add(num);
+        }
+        System.out.println(q);
+        int result = -1;
+        for (int i = 0; i < 5; i++) {
+            result = q.poll();
+            System.out.println("result=" + result);
+        }
+        System.out.println(result);
     }
 }

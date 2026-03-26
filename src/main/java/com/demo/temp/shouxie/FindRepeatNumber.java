@@ -32,6 +32,9 @@ public class FindRepeatNumber {
      * @return
      */
     private List<Integer> findRepeatNum2(int[] array) {
+        if (array == null || array.length == 0) {
+            return null;
+        }
         List<Integer> resultList = new ArrayList<>();
 
         for (int i = 0; i < array.length; i++) {

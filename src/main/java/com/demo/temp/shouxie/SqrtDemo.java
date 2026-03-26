@@ -45,7 +45,7 @@ public class SqrtDemo {
 
     public static void main(String[] args) {
         SqrtDemo sqrtDemo = new SqrtDemo();
-        System.out.println(sqrtDemo.mySqrt(8));
+        System.out.println(sqrtDemo.mySqrt2(8));
         System.out.println(sqrtDemo.mySqrt2(9));
     }
 }

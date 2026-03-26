@@ -3,13 +3,14 @@ package com.demo.mianshishu;
 /**
  * ############
  * 旋转数组的最小值
+ * https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/description/
  * 153
  */
 public class ArrayMin {
 
     public static void main(String[] args) {
-         int[] array = new int[]{3, 4, 5, 1, 2};
-        //int[] array = new int[]{4, 5, 1, 2, 3};
+//         int[] array = new int[]{3, 4, 5, 1, 2};
+        int[] array = new int[]{4, 5, 1, 2, 3};
         System.out.println(new ArrayMin().findMin(array));
     }
 

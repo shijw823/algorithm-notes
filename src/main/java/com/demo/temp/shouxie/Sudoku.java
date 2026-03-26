@@ -30,9 +30,9 @@ public class Sudoku {
                 return false;
             }
         }
+
         int beginX = 3 * (x / 3);
         int beginY = 3 * (y / 3);
-
         for (int i = beginX; i < beginX + 3; i++) {
             for (int j = beginY; j < beginY + 3; j++) {
                 if (i != x && j != y && board[i][j] == num) {

@@ -2,6 +2,7 @@ package com.demo.temp.shouxie;
 
 /**
  * @author shijianwei
+ * 有序数组绝对值中最小值
  */
 public class Test2 {
     public static void main(String[] args) {

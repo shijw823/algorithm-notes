@@ -4,6 +4,7 @@ import java.util.Stack;
 
 /**
  * RemoveKDigits
+ * @@@@@
  * 删去k个数字后的最小值
  * see https://mp.weixin.qq.com/s/B22d7S_8IC3J3H7RbCVXxA
  *
@@ -20,37 +21,48 @@ public class RemoveKDigits {
         System.out.println(removeKDigits("30200", 1));
         System.out.println(removeKDigits("10", 2));
         System.out.println(removeKDigits("541270936", 3));
+        System.out.println(removeKDigits("112", 1));
+        System.out.println(removeKDigits("30200", 2));
     }
 
-    private static String removeKDigits(String nums, int k) {
-        char[] result = new char[nums.length() - k];
-
-        if (nums.length() == k) {
+    public static String removeKDigits(String num, int k) {
+        if (k >= num.length()) {
             return "0";
         }
 
-        int length = result.length;
-        int topIndex = 0;
-        for (int i = 0; i<nums.length(); i++) {
-            char c = nums.charAt(i);
+        char[] stack = new char[num.length()];
+        int top = -1; // 栈顶指针
 
-            //当栈顶数字大于遍历到的当前数字，栈顶数字出栈（相当于删除数字）
-            if(topIndex > 0 && result[topIndex - 1] > c && k > 0) {
-                topIndex--;
+        for (char digit : num.toCharArray()) {
+            // 当还有删除次数，且栈不为空，且当前数字小于栈顶数字时
+            while (k > 0 && top >= 0 && digit < stack[top]) {
+                top--; // 弹出栈顶
                 k--;
             }
 
-            result[topIndex++] = c;
+            stack[++top] = digit; // 压入栈
         }
 
-        // 找到栈中第一个非零数字的位置，以此构建新的整数字符串
-        int offset = 0;
-        while(offset < length && result[offset] == '0') {
-            offset ++;
+        System.out.println("top=" + top + ":k=" + k);
+
+        // 如果还有剩余的k，从末尾删除
+        top -= k;
+
+        System.out.println(stack);
+
+        // 移除前导零
+        int start = 0;
+        while (start <= top && stack[start] == '0') {
+            start++;
         }
 
-        return new String(result).substring(offset);
+        System.out.println("start=" + start + ":top=" + top);
 
-        // return new String(result, offset, length - offset);
+        // 处理结果
+        if (start > top) {
+            return "0";
+        }
+
+        return new String(stack, start, top - start + 1);
     }
 }

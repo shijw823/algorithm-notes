@@ -1,12 +1,11 @@
 package com.demo.study.queue;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.PriorityQueue;
+import java.util.*;
 
 /**
  * *********************ok
  * 滑动窗口最大值 O(n) 239
+ * https://leetcode.cn/problems/sliding-window-maximum/description/
  * 难
  * shipin
  * 可以采用优先队列， 大顶堆，O(nlogk)
@@ -14,7 +13,7 @@ import java.util.PriorityQueue;
 public class SlidingWindow {
 
     public static void main(String[] args) {
-        int[] arr = {1, 3, -1, -3, 5, 3, 6, 7};
+        int[] arr = {1, 3, -1, -3, 5, 3, 6, 7, 1};
         int k = 3;
         SlidingWindow slidingWindow = new SlidingWindow();
         int[] result = slidingWindow.maxSlidingWindow2(arr, k);
@@ -32,10 +31,11 @@ public class SlidingWindow {
         int[] res = new int[nums.length - k + 1];
         int j = 0;
 
+        // 从大道小排序
         PriorityQueue<Integer> queue = new PriorityQueue<>((o1, o2) -> (o2 - o1));
         for (int i = 0; i < nums.length; i++) {
             queue.offer(nums[i]);
-            if (i + 1 >= k) {
+            if (i >= k - 1) {
                 res[j++] = queue.peek();
             }
             if (i >= k) {

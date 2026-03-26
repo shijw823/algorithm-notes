@@ -2,6 +2,7 @@ package com.demo.important.shouxie;
 
 /**
  * *********************
+ * @@@@@
  * @author shijianwei
  * @since 2019/03/28
  */
@@ -9,7 +10,7 @@ public class MergeSortTest {
 
     private static void mergeSort(int[] array, int low, int high) {
         if (low < high) {
-            int mid = (low + high) / 2;
+            int mid = low + (high - low) / 2;
             mergeSort(array, low, mid);
             mergeSort(array, mid + 1, high);
             merge(array, low, mid, high);

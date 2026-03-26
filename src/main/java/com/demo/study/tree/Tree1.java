@@ -35,8 +35,8 @@ public class Tree1 {
         Map<Integer, List<Integer>> map = new LinkedHashMap<>();
         tree1.dfsLevelOrder(root, 1, map);
         System.out.println(map.values());
-        //System.out.println("-------------");
-        //tree1.levelOrderPrint(root);
+        System.out.println("-------------");
+        tree1.levelOrderPrint(root);
         //System.out.println("-------------");
         //tree1.levelOrderPrint2(root);
     }
@@ -118,6 +118,9 @@ public class Tree1 {
 
     // BFS
     private void getTreeNodeFirstNodeVal2(TreeNode root, Map<Integer, Integer> result) {
+        if (root == null) {
+            return;
+        }
         LinkedList<TreeNode> queue = new LinkedList<>();
         queue.add(root);
         int level = 1;
@@ -133,11 +136,11 @@ public class Tree1 {
 
                 result.putIfAbsent(level, node.val);
 
-                if (node != null && node.left != null) {
+                if (node.left != null) {
                     queue.add(node.left);
                 }
 
-                if (node != null &&  node.right != null) {
+                if (node.right != null) {
                     queue.add(node.right);
                 }
             }

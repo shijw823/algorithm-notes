@@ -24,19 +24,19 @@ public class CharacterTest {
     }
 
     private static boolean isMatch(String strs) {
-        if(strs == null || "".equals(strs)) {
+        if (strs == null || "".equals(strs)) {
             return false;
         }
         Stack<Character> stack = new Stack<>();
         char[] chars = strs.toCharArray();
-        for(char ch : chars) {
+        for (char ch : chars) {
             // 左括号入栈
-            if(map.values().contains(ch)) {
+            if (map.values().contains(ch)) {
                 stack.push(ch);
             }
             // 右括号出栈
-            else if(map.containsKey(ch)) {
-                if(stack.empty() || !stack.pop().equals(map.get(ch))) {
+            else if (map.containsKey(ch)) {
+                if (stack.empty() || !stack.pop().equals(map.get(ch))) {
                     return false;
                 }
             }
@@ -45,20 +45,20 @@ public class CharacterTest {
         return stack.empty();
     }
 
-    private static boolean isMatch2(String s){
-        if(s == null || s.length() < 1) {
+    private static boolean isMatch2(String s) {
+        if (s == null || s.isEmpty()) {
             return true;
         }
         // 用来记录遇到的 "(" 的个数
         int sum = 0;
         // 遍历字符串
-        for(int i = 0; i < s.length(); i++){
+        for (int i = 0; i < s.length(); i++) {
             // 获取字符串的第 i 个字符
             char c = s.charAt(i);
-            if(c == '('){
+            if (c == '(') {
                 sum++;
-            }else if (c == ')'){
-                if(sum == 0) {
+            } else if (c == ')') {
+                if (sum == 0) {
                     return false;
                 } else {
                     sum--;

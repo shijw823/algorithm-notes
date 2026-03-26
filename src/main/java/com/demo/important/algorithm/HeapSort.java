@@ -1,6 +1,8 @@
 package com.demo.important.algorithm;
 
 import java.util.Arrays;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 /**
  * *********************
@@ -16,9 +18,22 @@ import java.util.Arrays;
 public class HeapSort {
     public static void main(String[] args) {
         int[] arr = {9, 8, 7, 6, 5, 4, 3, 2, 1};
-        sort(arr);
+//        sort(arr);
+//        System.out.println(Arrays.toString(arr));
+        sort2(arr);
         System.out.println(Arrays.toString(arr));
     }
+
+    private static void sort2(int[] arr) {
+        Queue<Integer> queue = new PriorityQueue<>();
+        for (int i = 0; i < arr.length; i++) {
+            queue.offer(arr[i]);
+        }
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = queue.poll();
+        }
+    }
+
 
     private static void sort(int[] arr) {
         //1.构建大顶堆

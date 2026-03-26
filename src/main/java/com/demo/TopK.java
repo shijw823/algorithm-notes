@@ -3,6 +3,7 @@ package com.demo;
 import com.demo.study.heap.KthLargest;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
 
@@ -15,6 +16,8 @@ public class TopK {
     public static void main(String[] args) {
         // 从大到小
         PriorityQueue<Integer> queue = new PriorityQueue<>((i,j) -> j-i);
+        // 从小到大
+//        PriorityQueue<Integer> queue = new PriorityQueue<>();
 
         queue.offer(5);
         queue.offer(3);

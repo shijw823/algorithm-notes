@@ -11,14 +11,34 @@ import java.util.*;
 public class Q50 {
 
     public static void main(String[] args) {
-        String str = "abaccdeff";
-        //String str = "ffedccaba";
+//        String str = "abaccdeff";
+        String str = "ffedccaba";
         System.out.println(getCharacter(str));
         System.out.println(getCharacter2(str));
+        System.out.println(getCharacter3(str));
 
         System.out.println("---------------");
         String reusltStr = delSecondString("We are students", "aeiou");
         System.out.println(reusltStr);
+    }
+
+    // 时间复杂度O(n)，空间复杂度O(1)
+    private static Character getCharacter3(String str) {
+        // 假设字符集只包含小写字母（26个）
+        // 如果字符集更大，但仍然是固定大小的，空间复杂度仍然是O(1)
+        int[] count = new int[26];
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+            count[c - 'a'] ++;
+        }
+
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+            if (count[c - 'a'] == 1) {
+                return c;
+            }
+        }
+        return null;
     }
 
     // 空间复杂度O(k)， 不同字符的个数，最大26
@@ -28,10 +48,6 @@ public class Q50 {
         for (int i = 0; i < strArray.length; i++) {
             String s = strArray[i];
             resultMap.put(s, resultMap.getOrDefault(s, 0) + 1);
-            //Integer num = resultMap.putIfAbsent(s, 1);
-            //if (num != null) {
-            //    resultMap.put(s, resultMap.get(s) + 1);
-            //}
         }
         for (int i = 0; i < strArray.length; i++) {
             if (resultMap.get(strArray[i]) == 1) {
@@ -64,10 +80,7 @@ public class Q50 {
 
         for (int i = 0; i < str.length(); i++) {
             Character c = str.charAt(i);
-            Integer count = resultMap.putIfAbsent(c, 1);
-            if (count != null) {
-                resultMap.put(c, resultMap.get(c) + 1);
-            }
+            resultMap.put(c, resultMap.getOrDefault(c, 0) + 1);
         }
         return resultMap;
     }
@@ -76,10 +89,7 @@ public class Q50 {
         Map<Character, Integer> resultMap = new HashMap<>();
         for (int i = 0; i < secondStr.length(); i++) {
             Character c = secondStr.charAt(i);
-            Integer count = resultMap.putIfAbsent(c, 1);
-            if (count != null) {
-                resultMap.put(c, resultMap.get(c) + 1);
-            }
+            resultMap.put(c, resultMap.getOrDefault(c, 0) + 1);
         }
 
         String resultStr = "";

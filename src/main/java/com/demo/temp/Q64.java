@@ -8,8 +8,9 @@ public class Q64 {
 
     public static void main(String[] args) {
         Q64 demo = new Q64();
-        System.out.println(demo.sumNums(8));
-        System.out.println(demo.sumNums2(8));
+        System.out.println(demo.sumNums(10));
+        System.out.println(demo.sumNums2(10));
+        System.out.println(demo.sumNums3(10));
     }
 
     // 可以翻译成sumNums2
@@ -27,6 +28,18 @@ public class Q64 {
         }
         sum += sumNums2(n - 1);
         return sum;
+    }
+
+    public int sumNums3(int n) {
+        int[] array = new int[n+1];
+        array[0] = 0;
+        array[1] = 1;
+
+        for (int i = 2; i <= n; i++) {
+            array[i] = array[i-1] + i;
+        }
+
+        return array[n];
     }
 
 }

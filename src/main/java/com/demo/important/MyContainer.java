@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
  * @create 2017-06-05
  */
 public class MyContainer {
-	private List<Object> list = new ArrayList<Object>();
+	private final List<Object> list = new ArrayList<>();
 
 	public void add(Object o) {
 		list.add(o);

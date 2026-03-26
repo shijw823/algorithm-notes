@@ -77,6 +77,33 @@ public class Dp1 {
         return dp[0];
     }
 
+    /**
+     * 自底向上动态规划 - 空间优化版
+     * 时间复杂度: O(n²) 空间复杂度: O(n)
+     */
+    public int minimumTotal3(List<List<Integer>> triangle) {
+        if (triangle == null || triangle.isEmpty()) return 0;
+
+        int n = triangle.size();
+        // dp数组初始化为三角形最后一行的值
+        int[] dp = new int[n];
+        for (int i = 0; i < n; i++) {
+            dp[i] = triangle.get(n - 1).get(i);
+            System.out.println("i=" + i + ":" + dp[i]);
+        }
+
+        // 从倒数第二行开始向上计算
+        for (int i = n - 2; i >= 0; i--) {
+            for (int j = 0; j <= i; j++) {
+                // 状态转移方程：dp[j] = triangle[i][j] + min(dp[j], dp[j+1])
+                dp[j] = triangle.get(i).get(j) + Math.min(dp[j], dp[j + 1]);
+                System.out.println(i + "&" + j + ":" + dp[j] + "," + triangle.get(i).get(j));
+            }
+        }
+
+        return dp[0];
+    }
+
     public static void main(String[] args) {
         List<List<Integer>> list = new ArrayList<>();
 
@@ -102,9 +129,16 @@ public class Dp1 {
         subList4.add(3);
         list.add(subList4);
 
-        System.out.println(list.size());
+        System.out.println(list);
+        System.out.println(list.get(2).get(0));
+        System.out.println(list.get(2).get(1));
+        System.out.println(list.get(2).get(2));
         System.out.println("---------------------");
 
-        System.out.println(new Dp1().minimumTotal(list));
+//        System.out.println(new Dp1().minimumTotal(list));
+        System.out.println("---------------------");
+//        System.out.println(new Dp1().minimumTotal2(list));
+        System.out.println("---------------------");
+        System.out.println(new Dp1().minimumTotal3(list));
     }
 }

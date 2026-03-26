@@ -42,7 +42,9 @@ public class Node1 {
             cur = cur.next;
         }
         //删除结点
-        cur.next = cur.next.next;
+        if (cur.next != null) {
+            cur.next = cur.next.next;
+        }
         return head;
     }
 

@@ -8,6 +8,7 @@ package com.demo.practice;
 public class RemoveDuplicateTest {
     // 使用 StringBuilder 模拟栈
     // 时间复杂度：O(n)
+    // abbaca -> ca
     public String removeDuplicates(String s) {
         StringBuilder sb = new StringBuilder();
         for(int i=0;i<s.length();i++) {

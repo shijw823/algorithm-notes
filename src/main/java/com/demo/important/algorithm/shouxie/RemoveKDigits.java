@@ -2,6 +2,7 @@ package com.demo.important.algorithm.shouxie;
 
 /**
  * @author shijianwei
+ * @see com.demo.important.algorithm.RemoveKDigits
  */
 public class RemoveKDigits {
     public static void main(String[] args) {

@@ -24,15 +24,15 @@ public class ArrangeCoinsTest {
     public int arrangeCoinsBinarySearch(int n) {
         if (n <= 1) return n;
 
-        long left = 1, right = n;
+        int left = 1, right = n;
         int result = 0;
 
         while (left <= right) {
-            long mid = left + (right - left) / 2;
-            long total = mid * (mid + 1) / 2;
+            int mid = left + (right - left) / 2;
+            int total = mid * (mid + 1) / 2;
 
             if (total <= n) {
-                result = (int) mid;  // 更新可能的结果
+                result = mid;  // 更新可能的结果
                 left = mid + 1;      // 尝试更多的行
             } else {
                 right = mid - 1;     // 减少行数
@@ -40,5 +40,10 @@ public class ArrangeCoinsTest {
         }
 
         return result;
+    }
+
+    public static void main(String[] args) {
+        ArrangeCoinsTest demo = new ArrangeCoinsTest();
+        System.out.println(demo.arrangeCoinsBinarySearch(5));
     }
 }

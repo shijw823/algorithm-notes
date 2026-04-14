@@ -51,6 +51,9 @@ public class Tree1 {
             int currentSize = queue.size();
             for (int i = 0; i < currentSize; i++) {
                 TreeNode currentNode = queue.poll();
+                if (currentNode == null) {
+                    continue;
+                }
                 list.add(currentNode.val);
                 if (currentNode.left != null) {
                     queue.add(currentNode.left);
@@ -74,6 +77,9 @@ public class Tree1 {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
                 TreeNode treeNode = queue.poll();
+                if (treeNode == null) {
+                    continue;
+                }
                 System.out.print(treeNode.val + " ");
                 if (treeNode.left != null) {
                     queue.add(treeNode.left);

@@ -31,7 +31,7 @@ public class SlidingWindow {
         int[] res = new int[nums.length - k + 1];
         int j = 0;
 
-        // 从大道小排序
+        // 从大到小排序
         PriorityQueue<Integer> queue = new PriorityQueue<>((o1, o2) -> (o2 - o1));
         for (int i = 0; i < nums.length; i++) {
             queue.offer(nums[i]);

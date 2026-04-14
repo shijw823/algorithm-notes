@@ -38,4 +38,14 @@ public class BTreePaths {
             dfs(root.right, path, result);
         }
     }
+
+    public static void main(String[] args) {
+        // [1,2,3,null,5]
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.right = new TreeNode(5);
+        BTreePaths demo = new BTreePaths();
+        System.out.println(demo.binaryTreePaths(root));
+    }
 }

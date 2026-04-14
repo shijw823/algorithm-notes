@@ -4,6 +4,7 @@ package com.demo.practice;
  * @author shijianwei
  * @date 2025/12/30
  * https://leetcode.cn/problems/rotate-array/
+ * @@@@@
  */
 public class RotateTest {
 
@@ -29,7 +30,16 @@ public class RotateTest {
             nums[start] = nums[end];
             nums[end] = temp;
             start++;
-            end++;
+            end--;
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 3, 4, 5, 6, 7};
+        RotateTest rotateTest = new RotateTest();
+        rotateTest.rotate(nums, 3);
+        for (int num : nums) {
+            System.out.print(num + " ");
         }
     }
 }

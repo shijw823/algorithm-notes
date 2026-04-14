@@ -51,7 +51,7 @@ public class StackDemo {
     // 空间复杂度为o(1)
     // https://mp.weixin.qq.com/s/UGb5B75W3r2yYL673E6LTQ
     public static boolean isValid3(String s) {
-        if (s == null || s.length() < 1) {
+        if (s == null || s.isEmpty()) {
             return true;
         }
         int n = s.length();// 字符串长度

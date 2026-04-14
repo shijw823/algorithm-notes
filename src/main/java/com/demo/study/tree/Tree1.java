@@ -54,6 +54,9 @@ public class Tree1 {
             List<Integer> currentLevelList = new ArrayList<>();
             for (int i = 0; i < levelSize; i++) {
                 TreeNode treeNode = queue.poll();
+                if (treeNode == null) {
+                    continue;
+                }
                 currentLevelList.add(treeNode.val);
                 if (treeNode.left != null) {
                     queue.add(treeNode.left);
@@ -77,6 +80,9 @@ public class Tree1 {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
                 TreeNode treeNode = queue.poll();
+                if (treeNode == null) {
+                    continue;
+                }
                 System.out.print(treeNode.val + " ");
                 if (treeNode.left != null) {
                     queue.add(treeNode.left);
